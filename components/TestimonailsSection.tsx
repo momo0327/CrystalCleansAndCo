@@ -1,0 +1,127 @@
+import { SparkleIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { TestimonialCarousel } from '@/components/TestimonialCarousel';
+
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: "Anna Larsson",
+      role: "Hemägare",
+      text: "Fantastisk service! De kom i tid och mitt hem var skinande rent efteråt. Kommer definitivt att boka igen.",
+      color: "bg-[#002657]",
+      textColor: "text-white",
+      nameColor: "text-gray-100",
+      roleColor: "text-gray-300"
+    },
+    {
+      id: 2,
+      name: "Erik Johansson", 
+      role: "Kontorsägare",
+      text: "Professionell och noggrann städning av vårt kontor. Personalen var vänlig och respekterade våra rutiner.",
+      color: "bg-[#0287FE]/70",
+      textColor: "text-white",
+      nameColor: "text-gray-100",
+      roleColor: "text-blue-100"
+    },
+    {
+      id: 3,
+      name: "Maria Andersson",
+      role: "Privatperson",
+      text: "Perfekt flyttstädning! De tog hand om allt så att jag kunde fokusera på flytten. Mycket nöjd med resultatet.",
+      color: "bg-gray-900",
+      textColor: "text-white",
+      nameColor: "text-white",
+      roleColor: "text-gray-400"
+    },
+    {
+      id: 4,
+      name: "Lars Nilsson",
+      role: "Restaurangägare", 
+      text: "Pålitlig och grundlig service. De förstår vikten av renlighet i vår bransch och levererar alltid högsta kvalitet.",
+      color: "bg-[#C0FA01]",
+      textColor: "text-gray-900",
+      nameColor: "text-black",
+      roleColor: "text-gray-700"
+    }
+  ];
+  
+  return (
+    <section className="py-10 md:py-36 bg-gray-50">
+      <div className="px-4 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 md:mb-12">
+            <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-neutral-200 mb-6 md:mb-0">
+              Vad våra kunder säger
+              {/* Sparkles beside title */}
+            <span className="absolute -top-2 w-8 h-8 text-[#0287FE]">
+                   <SparkleIcon />
+                 </span>
+                 <span className="absolute top-3 px-4 w-6 h-6 text-[#0287FE]">
+                   <SparkleIcon />
+                 </span>
+            </h2>
+            
+            {/* Navigation Buttons - Show on medium screens and up */}
+            <div className="hidden md:flex gap-3">
+              <button 
+                onClick={() => {
+                  const container = document.querySelector('.testimonial-scroll-container');
+                  if (container) container.scrollBy({ left: -400, behavior: 'smooth' });
+                }}
+                className="p-3 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-700" />
+              </button>
+              <button 
+                onClick={() => {
+                  const container = document.querySelector('.testimonial-scroll-container');
+                  if (container) container.scrollBy({ left: 400, behavior: 'smooth' });
+                }}
+                className="p-3 bg-gray-900 hover:bg-gray-800 rounded-full transition-colors"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-6 h-6 text-white" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonial Carousel */}
+      <TestimonialCarousel testimonials={testimonials} />
+      
+      {/* Navigation Buttons - Show on mobile only, below cards */}
+      <div className="md:hidden px-4 mt-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex gap-3">
+            <button 
+              onClick={() => {
+                const container = document.querySelector('.testimonial-scroll-container');
+                if (container) container.scrollBy({ left: -300, behavior: 'smooth' });
+              }}
+              className="p-3 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-700" />
+            </button>
+            <button 
+              onClick={() => {
+                const container = document.querySelector('.testimonial-scroll-container');
+                if (container) container.scrollBy({ left: 300, behavior: 'smooth' });
+              }}
+              className="p-3 bg-gray-900 hover:bg-gray-800 rounded-full transition-colors"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialsSection;

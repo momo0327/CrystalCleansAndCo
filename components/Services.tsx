@@ -3,6 +3,7 @@
 import React from 'react';
 import { CarouselServices } from '@/components/CarouselServices'; // Import the custom carousel
 import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 
 const ServicesSection = () => {
   const services = [
@@ -49,7 +50,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-10  bg-blue-200/20">
+    <section id='services' className="py-10  bg-blue-200/20">
       <div className="max-w-7xl mx-auto">
         <div className='py-12 px-6  md:py-12 '>
           <Badge className="bg-[blue-200/20] border border-[#002657] text-[#002657]">
@@ -103,9 +104,11 @@ const ServiceContent = ({ title, description }: { title: string; description: st
       </div>
 
       <div className="flex gap-4 ">
-        <button className="bg-[#002657] text-white py-3 px-8 rounded-lg font-medium hover:bg-blue-800 transition-colors">
+        <Button
+         onClick={() => window.location.hash = "#contact"}       
+        className="bg-[#002657] text-white py-3 px-8 rounded-lg font-medium hover:bg-blue-800 transition-colors">
           Boka nu
-        </button>
+        </Button>
       </div>
     </div>
   );

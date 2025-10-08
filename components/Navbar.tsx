@@ -40,13 +40,14 @@ function Navbar() {
       <header className="fixed top-0 z-50 w-full bg-white">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center ml-[-15px]">
-            <Image
-              src="/image 1-2.png"
-              width={58}
-              height={58}
-              alt="Crystal Cleans Logo"
-              priority
-            />
+              <Image
+                src="/image 1-2.png"
+                width={58}
+                height={58}
+                alt="Crystal Cleans Logo"
+                priority
+                onClick={() => window.location.hash = "#"}
+              />
             <span className="text-md font-semibold text-[#002657]">
               Crystal Cleans & Co
             </span>
@@ -58,7 +59,7 @@ function Navbar() {
               Tjänster
             </Link>
            
-            <Link href="#testimonials" className="text-sm font-medium hover:text-blue-600 transition-colors">
+            <Link href="#reviews" className="text-sm font-medium hover:text-blue-600 transition-colors">
               Recensioner
             </Link>
             <Link href="#faq" className="text-sm font-medium hover:text-blue-600 transition-colors">
@@ -68,10 +69,15 @@ function Navbar() {
           
           {/* Desktop Buttons */}
           <div className="flex items-center gap-4">
-            <Button variant="outline" className="hidden md:flex border-[#002657] text-[#002657] hover:bg-blue-50">
+            <Button 
+             onClick={() => window.location.href = "mailto:crystalcleans@gmail.com?subject=Hello"}
+            variant="outline" className="hidden md:flex border-[#002657] text-[#002657] hover:bg-blue-50">
               Kontakta
             </Button>
-            <Button className="hidden md:flex bg-[#002657] hover:bg-blue-700">Boka Nu</Button>
+            <Button 
+                    onClick={() => window.location.hash = "#contact"}
+
+            className="hidden md:flex bg-[#002657] hover:bg-blue-700">Boka Nu</Button>
             
             {/* Mobile Menu Button */}
             <Button 
@@ -140,7 +146,7 @@ function Navbar() {
               </Link>
             
               <Link 
-                href="#testimonials" 
+                href="#reviews" 
                 className="block text-xl font-medium text-gray-900 hover:text-[#002657] transition-colors py-3 border-b border-gray-100"
                 onClick={closeMobileMenu}
               >

@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface ServicesCarouselProps {
   services: ServiceCard[];
@@ -111,23 +112,28 @@ export const CarouselServices = ({
             )}
           >
             {items.map((item, index) => (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 * index, ease: "easeOut" } }}
-                key={"service-card" + index}
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
-              >
-                {item}
-              </motion.div>
+           <motion.div
+           initial={{ opacity: 0, y: 50 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, amount: 0.3 }}
+           transition={{ duration: 0.6, delay: 0.2 * index, ease: "easeOut" }}
+           key={"service-card" + index}
+           className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+         >
+           {item}
+         </motion.div>
+         
             ))}
           </div>
         </div>
 
         {/* Navigation Controls */}
         <div className="flex justify-between items-center px-6 md:px-24 mt-4">
-          <button className="bg-[#002657] text-white py-3 px-12 md:py-4 md:px-24 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors">
+          <Button
+         onClick={() => window.location.hash = "#contact"}                 
+          className="bg-[#002657] text-white py-3 px-12 md:py-4 md:px-24 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors">
             Boka nu
-          </button>
+          </Button>
 
           <div className="mr-10 flex justify-end gap-2">
             <button

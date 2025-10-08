@@ -83,9 +83,9 @@ direction="right"
 />
       
 
-<div className="py-36 md:py-24 lg:py-32 ">
+<section id="reviews" className="py-36 md:py-24 lg:py-32 ">
 <TestimonialsSection/>
-</div>
+</section>
    
 
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
@@ -119,7 +119,10 @@ direction="right"
             <div className="text-center mt-12">
               <p className="text-gray-600 mb-6">Har du fler frågor?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-[#002657]  hover:bg-blue-700">Kontakta Oss</Button>
+                <Button 
+                onClick={() => window.location.href = "mailto:crystalcleans@gmail.com?subject=Hello"}
+
+                className="bg-[#002657]  hover:bg-blue-700">Kontakta Oss</Button>
                 <Button variant="outline" className="border-[#002657]  text-[#002657]  hover:bg-blue-50">
                   <Phone className="mr-2 h-4 w-4" />  +46 76-306 35 43
                 </Button>

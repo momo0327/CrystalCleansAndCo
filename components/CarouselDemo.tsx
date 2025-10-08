@@ -181,10 +181,16 @@ export function CarouselDemo() {
   return (
     <div className="w-full h-full py-20">
       <div className="max-w-7xl mx-auto px-4 mb-10 flex flex-col md:flex-row md:justify-between md:items-start gap-4">
-        <h2 className="text-4xl md:text-5xl font-bold relative text-gray-900 dark:text-neutral-200">
-          Vi är Crystal Cleans
-          <SparkleIcon className="absolute -top-2 right-0 w-8 h-8 text-[#0287FE]" />
-        </h2>
+         <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-neutral-200 mb-6 md:mb-0">
+                      Vi är Crystal Cleans 
+                      {/* Sparkles beside title */}
+                    <span className="absolute -top-2 w-8 h-8 text-[#0287FE]">
+                           <SparkleIcon />
+                         </span>
+                         <span className="absolute top-3 px-4 w-6 h-6 text-[#0287FE]">
+                           <SparkleIcon />
+                         </span>
+                    </h2>
         <p className="text-md md:text-lg md:w-2/4 text-gray-600 dark:text-neutral-400">
         Hos oss möter du erfarna och noggranna städare som levererar förstklassig städning för både hem och företag. Vi erbjuder heltäckande städtjänster så du kan njuta av ett rent och fräscht hem, året runt.
         </p>

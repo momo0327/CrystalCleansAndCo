@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import ReactBeforeSliderComponent from 'react-before-after-slider-component';
 import 'react-before-after-slider-component/dist/build.css';
+import { Button } from './ui/button';
 
 const FIRST_IMAGE = {
   imageUrl: '/image copy.png'
@@ -44,10 +45,12 @@ function BeforeAfterSection() {
               </p>
             </div>
             
-            <button className="inline-flex items-center rounded-lg gap-3 bg-[#002657] text-white px-5 py-3 text-sm md:px-8 md:py-4 md:text-md font-medium hover:bg-gray-800 transition-colors">
+            <Button 
+            onClick={() => window.location.hash = "#contact"}       
+            className="inline-flex items-center rounded-lg gap-3 bg-[#002657] text-white px-5 py-3 text-sm md:px-8 md:py-4 md:text-md font-medium hover:bg-gray-800 transition-colors">
               Få en gratis offert
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Button>
           </div>
           
           {/* Right side - Before/After slider */}

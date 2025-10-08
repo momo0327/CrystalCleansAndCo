@@ -125,43 +125,10 @@ function Card({ card, index }: { card: CardType; index: number }) {
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
 
-  const handleClose = () => {
-    setOpen(false);
-    onCardClose(index);
-  };
 
   return (
     <>
-      <AnimatePresence>
-        {open && (
-          <div className="fixed inset-0 z-50 overflow-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-lg"
-              onClick={handleClose}
-            />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="relative z-60 mx-auto my-10 max-w-5xl rounded-3xl bg-white p-4 md:p-10 dark:bg-neutral-900"
-            >
-              <button
-                onClick={handleClose}
-                className="ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black dark:bg-white"
-              >
-                <IconX className="h-6 w-6 text-white dark:text-black" />
-              </button>
-              <p className="text-base font-medium">{card.category}</p>
-              <p className="mt-4 text-2xl md:text-5xl font-semibold">{card.title}</p>
-              <div className="py-10">{card.content}</div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
+    
       <button
         onClick={() => setOpen(true)}
         className="flex-shrink-0 relative h-80 w-56 md:h-[40rem] md:w-96 rounded-3xl overflow-hidden bg-gray-200"
@@ -187,33 +154,25 @@ function Card({ card, index }: { card: CardType; index: number }) {
   );
 }
 
-// Dummy Content
-const DummyContent = () => (
-  <div className="bg-gray-100 dark:bg-neutral-800 p-8 md:p-14 rounded-3xl">
-    <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl">
-      <span className="font-bold">Content goes here.</span> This is dummy content for the modal.
-    </p>
-  </div>
-);
 
 const data: CardType[] = [
     {
-      category: "Artificial Intelligence",
+      category: "",
       title: "Omar Hassan",
       src: "/04-copy.jpg",  // Your local image
-      content: <DummyContent />,
+      content:'',
     },
     {
-      category: "Productivity",
+      category: "",
       title: "Abdirahman Ali Hassan",
       src: "/03-copy.jpg",  // Your local image
-      content: <DummyContent />,
+      content: '',
     },
     {
-      category: "Product",
+      category: "",
       title: "Abdirahman Cabdi",
       src: "/08-copy.jpg",  // Your local image
-      content: <DummyContent />,
+      content: '',
     },
   ];
 
@@ -227,7 +186,7 @@ export function CarouselDemo() {
           <SparkleIcon className="absolute -top-2 right-0 w-8 h-8 text-[#0287FE]" />
         </h2>
         <p className="text-md md:text-lg md:w-2/4 text-gray-600 dark:text-neutral-400">
-          Hos oss träffar du erfarna och skickliga tandläkare, tandsköterskor och tandhygienister som ger dig heltäckande tandvård till en fast månadsavgift.
+        Hos oss möter du erfarna och noggranna städare som levererar förstklassig städning för både hem och företag. Vi erbjuder heltäckande städtjänster så du kan njuta av ett rent och fräscht hem, året runt.
         </p>
       </div>
 

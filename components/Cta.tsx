@@ -1,21 +1,27 @@
 import React from 'react';
 import { ArrowRight, Instagram } from 'lucide-react';
-import { FaTiktok } from 'react-icons/fa';
+import { FaTiktok, FaLinkedin, FaInstagram} from 'react-icons/fa';
 
 const CTASocialBanner = () => {
   const socialLinks = [
     {
       name: 'Instagram',
-      icon: Instagram,
-      url: 'https://instagram.com/yourcompany',
+      icon: FaInstagram,
+      url: 'https://www.instagram.com/crystalcleansab?igsh=bWhrZHM1aWtpZG4x',
       color: 'hover:text-pink-500',
     },
     {
       name: 'TikTok',
       icon: FaTiktok,
-      url: 'https://tiktok.com/@yourcompany',
+      url: 'https://www.tiktok.com/@crystalcleansab?_t=ZN-90O1xIupbde&_r=1',
       color: 'hover:text-black',
-    }
+    },
+    {
+      name: 'LinkedIn',
+      icon: FaLinkedin,
+      url: 'https://www.linkedin.com/in/crystal-cleans-ab-1b6b1a367/',
+      color: 'hover:text-blue-500',
+    },
   ];
 
   return (

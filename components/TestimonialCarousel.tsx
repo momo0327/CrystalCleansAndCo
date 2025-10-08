@@ -170,7 +170,7 @@ export const TestimonialCard = ({
       }`} />
       
       {/* Testimonial Text - Using dynamic textColor */}
-      <blockquote className={`${testimonial.textColor || 'text-white'} text-xl leading-tight md:text-xl md:leading-relaxed font-normal flex-grow`}>
+      <blockquote className={`${testimonial.textColor || 'text-white'} text-md  leading-tight md:text-xl md:leading-relaxed font-normal flex-grow`}>
         {testimonial.text}
       </blockquote>
       

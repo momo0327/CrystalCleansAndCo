@@ -59,9 +59,8 @@ const ServicesSection = () => {
             Vad vi erbjuder
           </h2>    
           <p className='text-gray-500'>
-            Att få kompensation för tågförseningar ska inte kännas jobbigt. 
-            Slipp formulär och <br />långdragna processer. 
-            Låt oss sköta det så that du kan fokusera på något roligare.
+          Vi erbjuder professionell städning för hem, kontor och företag <br />
+          alltid med miljövänliga produkter och noggrannhet i varje detalj.
           </p>
         </div>
       </div>
@@ -76,9 +75,7 @@ const ServicesSection = () => {
 const ServiceContent = ({ title, description }: { title: string; description: string }) => {
   return (
     <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl">
-      <h3 className="text-2xl md:text-3xl font-bold text-neutral-700 dark:text-neutral-200 mb-6">
-        {title}
-      </h3>
+    
       <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-lg font-sans max-w-3xl leading-relaxed mb-8">
         {description}
       </p>
@@ -88,10 +85,10 @@ const ServiceContent = ({ title, description }: { title: string; description: st
         <div className="space-y-4">
           <h4 className="font-semibold text-neutral-700 dark:text-neutral-200">Vad ingår:</h4>
           <ul className="space-y-2 text-neutral-600 dark:text-neutral-400">
-            <li>• Professionell utrustning</li>
-            <li>• Miljövänliga produkter</li>
-            <li>• Kvalitetsgaranti</li>
-            <li>• Flexibla tider</li>
+            <li>• Dammsugning & Golvvård</li>
+            <li>• Dammtorkning av möbler, lister och ytor</li>
+            <li>• Rengöring av kök (bänkar, diskbänk, spis, ytor)</li>
+            <li>• Flexibla Rengöring av badrum (handfat, toalett, dusch, speglar)</li>
           </ul>
         </div>
         <div className="space-y-4">
@@ -108,9 +105,6 @@ const ServiceContent = ({ title, description }: { title: string; description: st
       <div className="flex gap-4 ">
         <button className="bg-[#002657] text-white py-3 px-8 rounded-lg font-medium hover:bg-blue-800 transition-colors">
           Boka nu
-        </button>
-        <button className="border border-gray-300 text-gray-700 py-3 px-8 rounded-lg font-medium hover:bg-gray-50 transition-colors">
-          Läs mer
         </button>
       </div>
     </div>

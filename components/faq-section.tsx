@@ -4,44 +4,44 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    question: "How often should I schedule professional cleaning?",
+    question: "Hur ofta bör jag boka städning?",
     answer:
-      "For residential homes, we recommend bi-weekly or monthly cleaning to maintain a consistently clean environment. For high-traffic commercial spaces, weekly cleaning is often necessary. However, we can customize a schedule that fits your specific needs and budget.",
+      "För hem rekommenderar vi varannan vecka eller månadsvis för att hålla det rent och fräscht. För kontor eller lokaler med mycket trafik kan veckostädning vara bäst. Vi kan också anpassa schemat efter dina behov och din budget.",
   },
   {
-    question: "What cleaning products do you use?",
+    question: "Vilka städprodukter använder ni?",
     answer:
-      "We use eco-friendly, non-toxic cleaning products that are effective yet safe for your family, pets, and the environment. If you have specific product preferences or sensitivities, we're happy to accommodate your needs by using products you provide or recommend.",
+      "Vi använder miljövänliga och giftfria produkter som är effektiva och säkra för familj, husdjur och miljön. Har du särskilda önskemål eller känsligheter använder vi gärna produkter du föredrar.",
   },
   {
-    question: "Are your cleaning staff insured and background-checked?",
+    question: "Är era städare försäkrade och kontrollerade?",
     answer:
-      "Yes, all our cleaning professionals undergo thorough background checks and are fully insured and bonded. This provides peace of mind that your property is in safe hands. We also provide ongoing training to ensure our team maintains the highest standards of professionalism.",
+      "Ja, alla våra städare är försäkrade och bakgrundskontrollerade. Vi ser också till att de får kontinuerlig utbildning för att hålla högsta professionella standard.",
   },
   {
-    question: "What if I'm not satisfied with the cleaning service?",
+    question: "Vad händer om jag inte är nöjd med städningen?",
     answer:
-      "Your satisfaction is our top priority. If you're not completely happy with any aspect of our service, please let us know within 24 hours, and we'll return to address any areas of concern at no additional cost. We stand behind our work with a 100% satisfaction guarantee.",
+      "Din nöjdhet är viktigast för oss. Är du inte helt nöjd med något moment, hör av dig inom 24 timmar så kommer vi tillbaka och åtgärdar det utan extra kostnad. Vi står alltid bakom vårt arbete.",
   },
   {
-    question: "Do I need to be home during the cleaning service?",
+    question: "Behöver jag vara hemma när städningen sker?",
     answer:
-      "No, you don't need to be present during the cleaning. Many of our clients provide a key or access code. We have strict security protocols for key handling and client privacy. Of course, if you prefer to be home during the service, that's perfectly fine too.",
+      "Nej, du behöver inte vara hemma. Många kunder lämnar nyckel eller kod. Vi har strikta rutiner för säkerhet och integritet. Vill du vara hemma går det självklart också bra.",
   },
   {
-    question: "What's included in your deep cleaning service?",
+    question: "Vad ingår i en storstädning?",
     answer:
-      "Our deep cleaning service is comprehensive and includes everything in our regular cleaning plus extras like inside appliances, baseboards, window sills, detailed bathroom scrubbing, cabinet fronts, light fixtures, and more. It's perfect for first-time cleanings or seasonal refreshes.",
+      "Vår storstädning är omfattande och inkluderar allt från vanlig städning plus extras som insida av vitvaror, lister, fönsterbrädor, detaljerad badrumsrengöring, skåpsdörrar, lampor och mer. Perfekt för första gången eller en grundlig uppfräschning.",
   },
   {
-    question: "How do you handle pets in the home?",
+    question: "Hur hanterar ni husdjur?",
     answer:
-      "We love pets! Please let us know if you have pets so we can take appropriate precautions. Our team is trained to ensure doors remain closed and pets are comfortable. We use pet-safe cleaning products, but we recommend keeping sensitive pets in a separate area during cleaning.",
+      "Vi älskar husdjur! Berätta gärna om du har husdjur så tar vi lämpliga försiktighetsåtgärder. Vi använder husdjursvänliga produkter och ser till att de är bekväma under städningen.",
   },
   {
-    question: "Can I add special requests to my cleaning service?",
+    question: "Kan jag göra speciella önskemål?",
     answer:
-      "We encourage special requests and aim to accommodate your specific needs. Whether it's focusing extra attention on certain areas or using specific cleaning methods, just let us know your preferences when booking or add them to your client profile.",
+      "Absolut! Vi anpassar oss gärna efter dina behov. Vill du att vi fokuserar extra på vissa ytor eller använder speciella metoder, säg bara till vid bokning eller i din kundprofil.",
   },
 ]
 
@@ -49,8 +49,6 @@ export function FAQSection() {
   return (
     <section className="md:px-4 text-white">
       <div className="w-full max-w-4xl mx-auto">
-      
-
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem

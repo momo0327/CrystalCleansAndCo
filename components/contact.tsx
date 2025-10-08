@@ -13,11 +13,10 @@ const SimpleQuoteSection = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const serviceOptions = [
-    { value: 'residential', label: 'Residential Cleaning' },
-    { value: 'commercial', label: 'Commercial Cleaning' },
-    { value: 'deep', label: 'Deep Cleaning' },
-    { value: 'move', label: 'Move-in/Move-out' },
-    { value: 'window', label: 'Window Cleaning' }
+    { value: 'Flyttstädning', label: 'Flyttstädning ' },
+    { value: 'Hemstädning', label: 'Hemstädning' },
+    { value: 'Fönsterputs', label: 'Fönsterputs' },
+    { value: 'Företagsstädning', label: 'Företagsstädning' },
   ];
 
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
@@ -62,7 +61,7 @@ const SimpleQuoteSection = () => {
                 <Phone className="w-5 h-5 text-gray-600" />
                 <div>
                   <p className="text-sm text-gray-500">Phone</p>
-                  <p className="text-lg font-medium text-gray-900">(555) 123-4567</p>
+                  <p className="text-lg font-medium text-gray-900">+46 76-306 35 43</p>
                 </div>
               </div>
 
@@ -70,7 +69,7 @@ const SimpleQuoteSection = () => {
                 <Mail className="w-5 h-5 text-gray-600" />
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
-                  <p className="text-lg font-medium text-gray-900">info@cleanpro.com</p>
+                  <p className="text-lg font-medium text-gray-900">crystalcleans@gmail.com</p>
                 </div>
               </div>
 
@@ -78,7 +77,7 @@ const SimpleQuoteSection = () => {
                 <MapPin className="w-5 h-5 text-gray-600" />
                 <div>
                   <p className="text-sm text-gray-500">Service Area</p>
-                  <p className="text-lg font-medium text-gray-900">Serving Greater Metro Area</p>
+                  <p className="text-lg font-medium text-gray-900">Västra Götaland, Göteborg</p>
                 </div>
               </div>
             </div>
@@ -92,7 +91,7 @@ const SimpleQuoteSection = () => {
                   Get Your Free Quote
                 </h3>
                 <p className="text-gray-600">
-                  Fill out the form and we'll get back to you within 24 hours
+                Fyll i formuläret så återkommer vi inom 24 timmar.
                 </p>
               </div>
 
@@ -152,7 +151,7 @@ const SimpleQuoteSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="(555) 123-4567"
+                    placeholder="+46 76-306 35 43"
                     className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:border-gray-500"
                   />
                 </div>
@@ -196,7 +195,7 @@ const SimpleQuoteSection = () => {
                   type="submit"
                   className="w-full bg-[#002657] text-white py-3 px-4 font-medium hover:bg-gray-800 transition-colors mt-6"
                 >
-                  Get Free Quote
+                  Skicka
                 </button>
               </form>
             </div>

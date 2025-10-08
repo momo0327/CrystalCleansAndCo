@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { Sparkles, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-
+import { FaInstagram,FaLinkedin, FaTiktok } from "react-icons/fa"
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
@@ -28,17 +28,17 @@ export default function Footer() {
               <div/>
             </Link>
             <p className="text-gray-400 leading-relaxed">
-              Professional cleaning services with Swedish quality standards. Making your home spotless since 2018.
+              Professional cleaning services with Swedish quality standards.
             </p>
             <div className="flex gap-4">
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Facebook className="h-5 w-5" />
+                <FaInstagram className="h-5 w-5" />
               </Link>
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Instagram className="h-5 w-5" />
+                <FaTiktok className="h-5 w-5" />
               </Link>
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Twitter className="h-5 w-5" />
+                <FaLinkedin className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -48,12 +48,10 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Services</h3>
             <ul className="space-y-2">
               {[
-                "Regular Cleaning",
-                "Deep Cleaning",
-                "Move-in/Move-out",
-                "Post-Construction",
-                "Window Cleaning",
-                "Carpet Cleaning",
+                "Flyttstädning",
+                "Hemstädning",
+                "Fönsterputs",
+                "Företagsstädning",
               ].map((service) => (
                 <li key={service}>
                   <Link href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -69,12 +67,9 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                { name: "About Us", href: "/#about" },
-                { name: "Pricing", href: "/pricing" },
-                { name: "Blog", href: "/blog" },
-                { name: "Contact", href: "/contact" },
+                { name: "Kontact", href: "/contact" },
                 { name: "FAQ", href: "/faq" },
-                { name: "Reviews", href: "/reviews" },
+                { name: "Recensioner", href: "/reviews" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
@@ -91,7 +86,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-400">(555) 123-4567</span>
+                <span className="text-gray-400">+46 76-306 35 43</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-blue-400" />
@@ -113,7 +108,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} CleanPro. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} CrystalCleans&Co. All rights reserved.</p>
         
         </div>
       </div>

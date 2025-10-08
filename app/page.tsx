@@ -117,11 +117,11 @@ direction="right"
             <FAQSection />
             </div>
             <div className="text-center mt-12">
-              <p className="text-gray-600 mb-6">Don't see your question here?</p>
+              <p className="text-gray-600 mb-6">Har du fler frågor?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-[#002657]  hover:bg-blue-700">Contact Us</Button>
+                <Button className="bg-[#002657]  hover:bg-blue-700">Kontakta Oss</Button>
                 <Button variant="outline" className="border-[#002657]  text-[#002657]  hover:bg-blue-50">
-                  <Phone className="mr-2 h-4 w-4" /> Call (555) 123-4567
+                  <Phone className="mr-2 h-4 w-4" />  +46 76-306 35 43
                 </Button>
               </div>
             </div>

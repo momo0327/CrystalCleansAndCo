@@ -51,13 +51,7 @@ const CleaningBenefitsSection = () => {
           ))}
         </div>
 
-        {/* Call to Action Link */}
-        <div>
-          <button className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
-            <span>Läs mer</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+
       </div>
     </section>
   );

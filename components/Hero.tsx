@@ -44,11 +44,10 @@ function Hero() {
     <div className="flex flex-col items-center justify-center text-center space-y-6 max-w-4xl">
       <div className="space-y-4">
         <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none drop-shadow-lg">
-          Sparkling Clean Spaces, Every Time
+        Kristallklara ytor, professionell perfektion
         </h1>
         <p className="max-w-[600px] mx-auto text-white/90 md:text-xl drop-shadow-md">
-          Professional cleaning services for homes and businesses. We deliver exceptional results with
-          eco-friendly products and experienced staff.
+        Vi skapar skinande rena miljöer för hem och arbetsplatser med miljövänliga produkter och noggrannhet i varje detalj.
         </p>
       </div>
       

@@ -55,11 +55,11 @@ function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
             <Link href="#services" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              Services
+              Tjänster
             </Link>
            
             <Link href="#testimonials" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              Testimonials
+              Recensioner
             </Link>
             <Link href="#faq" className="text-sm font-medium hover:text-blue-600 transition-colors">
               FAQ
@@ -69,9 +69,9 @@ function Navbar() {
           {/* Desktop Buttons */}
           <div className="flex items-center gap-4">
             <Button variant="outline" className="hidden md:flex border-[#002657] text-[#002657] hover:bg-blue-50">
-              Get Quote
+              Kontakta
             </Button>
-            <Button className="hidden md:flex bg-[#002657] hover:bg-blue-700">Book Now</Button>
+            <Button className="hidden md:flex bg-[#002657] hover:bg-blue-700">Boka Nu</Button>
             
             {/* Mobile Menu Button */}
             <Button 
@@ -136,7 +136,7 @@ function Navbar() {
                 className="block text-xl font-medium text-gray-900 hover:text-[#002657] transition-colors py-3 border-b border-gray-100"
                 onClick={closeMobileMenu}
               >
-                Services
+                Tjänster
               </Link>
             
               <Link 
@@ -144,7 +144,7 @@ function Navbar() {
                 className="block text-xl font-medium text-gray-900 hover:text-[#002657] transition-colors py-3 border-b border-gray-100"
                 onClick={closeMobileMenu}
               >
-                Testimonials
+                Recensioner
               </Link>
               <Link 
                 href="#faq" 
@@ -164,11 +164,11 @@ function Navbar() {
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Mail className="h-4 w-4 text-[#002657]" />
-                <span>info@crystalcleans.se</span>
+                <span>crystalcleans@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <MapPin className="h-4 w-4 text-[#002657]" />
-                <span>Stockholm, Sverige</span>
+                <span>Göteborg, Sverige</span>
               </div>
             </div>
           </div>
@@ -181,13 +181,13 @@ function Navbar() {
             className="w-full border-[#002657] text-[#002657] hover:bg-blue-50 py-4 text-base"
             onClick={closeMobileMenu}
           >
-            Get Quote
+            Kontakta
           </Button>
           <Button 
             className="w-full bg-[#002657] hover:bg-blue-700 py-4 text-base"
             onClick={closeMobileMenu}
           >
-            Book Now
+            Boka Nu
           </Button>
         </div>
       </div>

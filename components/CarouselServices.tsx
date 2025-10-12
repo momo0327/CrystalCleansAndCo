@@ -41,10 +41,12 @@ export const CarouselServices = ({
   initialScroll = 0,
 }: ServicesCarouselProps) => {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobileView, setIsMobileView] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Client-side only window checks
   useEffect(() => {
@@ -60,6 +62,33 @@ export const CarouselServices = ({
       checkScrollability();
     }
   }, [initialScroll]);
+
+  // Intersection Observer to detect when carousel is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of component is visible
+        rootMargin: '0px'
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   const checkScrollability = () => {
     if (!carouselRef.current) return;
@@ -93,7 +122,7 @@ export const CarouselServices = ({
     <ServicesCarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full">
+      <div className="relative w-full" ref={containerRef}>
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-6 overflow-hidden [scrollbar-width:none] hide-scrollbar md:py-10"
           ref={carouselRef}
@@ -114,7 +143,11 @@ export const CarouselServices = ({
             {items.map((item, index) => (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 * index, ease: "easeOut" } }}
+                animate={{ 
+                  opacity: isVisible ? 1 : 0, 
+                  y: isVisible ? 0 : 20, 
+                  transition: { duration: 0.5, delay: 0.2 * index, ease: "easeOut" } 
+                }}
                 key={"service-card" + index}
                 className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
               >
@@ -190,6 +223,7 @@ export const ServicesCard = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { onCardClose } = useContext(ServicesCarouselContext);
 
+  /* MODAL FUNCTIONALITY DISABLED - Cards are not clickable
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") handleClose();
@@ -211,9 +245,11 @@ export const ServicesCard = ({
     setOpen(false);
     onCardClose(index);
   };
+  */
 
   return (
     <>
+      {/* MODAL DISABLED - Uncomment to enable clicking on cards
       <AnimatePresence>
         {open && (
           <div className="fixed inset-0 z-50 h-screen overflow-x-hidden">
@@ -248,11 +284,11 @@ export const ServicesCard = ({
           </div>
         )}
       </AnimatePresence>
+      */}
 
-      {/* Card */}
-      <motion.button
+      {/* Card - Changed from button to div, removed onClick */}
+      <motion.div
         layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={handleOpen}
         className="relative z-10 flex h-80 w-96 flex-col items-start justify-start overflow-hidden rounded-lg bg-gray-100 md:h-[40rem] md:w-[32rem] dark:bg-neutral-900"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
@@ -269,7 +305,7 @@ export const ServicesCard = ({
           alt={card.title}
           className="absolute inset-0 z-10 object-cover"
         />
-      </motion.button>
+      </motion.div>
     </>
   );
 };

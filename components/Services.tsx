@@ -46,6 +46,26 @@ const ServicesSection = () => {
         title="Flytt städ" 
         description="Gör din flytt smidigare med vår professionella flyttstädning. Vi säkerställer att både din gamla och nya bostad är skinande ren och redo."
       />
+    },
+    {
+      src: "/storstad.jpg",
+      title: "Stor städ",
+      category: "Specialtjänster",
+      description: "Fyll några enkla uppgifter så är ditt konto igång på nolltid. Det tar en minut.", 
+      content: <ServiceContent 
+        title="Flytt städ" 
+        description="Gör din flytt smidigare med vår professionella flyttstädning. Vi säkerställer att både din gamla och nya bostad är skinande ren och redo."
+      />
+    },
+    {
+      src: "/textil.jpg",
+      title: "Textil Tvätt",
+      category: "Specialtjänster",
+      description: "Fyll några enkla uppgifter så är ditt konto igång på nolltid. Det tar en minut.", 
+      content: <ServiceContent 
+        title="Flytt städ" 
+        description="Gör din flytt smidigare med vår professionella flyttstädning. Vi säkerställer att både din gamla och nya bostad är skinande ren och redo."
+      />
     }
   ];
 
@@ -53,7 +73,7 @@ const ServicesSection = () => {
     <section id='services' className="py-10  bg-blue-200/20">
       <div className="max-w-7xl mx-auto">
         <div className='py-12 px-6  md:py-12 '>
-          <Badge className="bg-[blue-200/20] border border-[#002657] text-[#002657]">
+          <Badge className="bg-[blue-200/20] border border-[#002657] hover:bg-blue-100 text-[#002657]">
             Tjänster
           </Badge>
           <h2 className="text-4xl md:text-4xl font-semibold text-[#002657] mt-6 mb-6">

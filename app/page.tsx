@@ -36,7 +36,7 @@ import Hero from "@/components/Hero"
 import Footer  from "@/components/Footer"
 import SponsorsSection from "@/components/Sponsors"
 import CurvedLoop from "@/components/CurvedLoop"
-import { TikTokEmbed, TikTokVideoContainer } from "@/components/TiktokEmbed"
+import TikTokEmbed from "@/components/TiktokEmbed"
 import Services from "@/components/Services"
 import Contact from "@/components/contact"
 import Info from "@/components/info"
@@ -96,6 +96,7 @@ direction="right"
     </div>
    
        
+
 
       
 

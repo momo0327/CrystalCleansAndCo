@@ -47,7 +47,7 @@ function BeforeAfterSection() {
             
             <Button 
             onClick={() => window.location.hash = "#contact"}       
-            className="inline-flex items-center rounded-lg gap-3 bg-[#002657] text-white px-5 py-3 text-sm md:px-8 md:py-4 md:text-md font-medium hover:bg-gray-800 transition-colors">
+            className="inline-flex items-center rounded-lg gap-3 bg-[#002657] text-white px-5 py-3 text-sm md:px-8 md:py-4 md:text-md font-medium hover:bg-blue-800 transition-colors">
               Få en gratis offert
               <ArrowRight className="w-5 h-5" />
             </Button>

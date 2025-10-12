@@ -36,10 +36,12 @@ export const TestimonialCarouselContext = createContext<{
 
 export const TestimonialCarousel = ({ testimonials, initialScroll = 0 }: TestimonialCarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Check if mobile on mount
@@ -55,6 +57,33 @@ export const TestimonialCarousel = ({ testimonials, initialScroll = 0 }: Testimo
       checkScrollability();
     }
   }, [initialScroll]);
+
+  // Intersection Observer to detect when carousel is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of component is visible
+        rootMargin: '0px'
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [isVisible]);
 
   const checkScrollability = () => {
     if (carouselRef.current) {
@@ -97,7 +126,7 @@ export const TestimonialCarousel = ({ testimonials, initialScroll = 0 }: Testimo
     <TestimonialCarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full">
+      <div className="relative w-full" ref={containerRef}>
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-6 overflow-hidden [scrollbar-width:none] hide-scrollbar md:py-10 testimonial-scroll-container"
           ref={carouselRef}
@@ -121,8 +150,8 @@ export const TestimonialCarousel = ({ testimonials, initialScroll = 0 }: Testimo
                   y: 20,
                 }}
                 animate={{
-                  opacity: 1,
-                  y: 0,
+                  opacity: isVisible ? 1 : 0,
+                  y: isVisible ? 0 : 20,
                   transition: {
                     duration: 0.5,
                     delay: 0.1 * index,
@@ -162,7 +191,7 @@ export const TestimonialCard = ({
 }) => {
   return (
     <div 
-      className={`${testimonial.color} rounded-xl p-4 md:px-8 relative flex-shrink-0 flex flex-col justify-between w-[350px] md:w-[500px] min-w-[250px] md:min-w-[320px] h-[450px] md:h-[400px]`}
+      className={`${testimonial.color}  rounded-xl  px-4 py-4 md:px-8 relative flex-shrink-0 flex flex-col justify-between w-[350px] md:w-[500px] min-w-[250px] md:min-w-[320px] h-[450px] md:h-[400px]`}
     >
       {/* Large Quote Icon - Dynamic color based on background */}
       <Quote className={`w-8 h-8 md:w-12 md:h-12 mb-4 md:mb-6 ${
@@ -170,9 +199,16 @@ export const TestimonialCard = ({
       }`} />
       
       {/* Testimonial Text - Using dynamic textColor */}
-      <blockquote className={`${testimonial.textColor || 'text-white'} text-md  leading-tight md:text-xl md:leading-relaxed font-normal flex-grow`}>
-        {testimonial.text}
-      </blockquote>
+      <blockquote
+  className={cn(
+    `${testimonial.textColor || 'text-white'} text-xl   md:text-xl font-normal leading-snug md:leading-relaxed flex-grow`,
+    // 👇 narrower width on mobile, left-aligned
+    "max-w-[16rem] sm:max-w-[20rem] md:max-w-[28rem]"
+  )}
+>
+  {testimonial.text}
+</blockquote>
+
       
       {/* Customer Name and Role - Using dynamic colors */}
       <div className="mt-4 md:mt-8">

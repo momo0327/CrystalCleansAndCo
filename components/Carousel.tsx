@@ -29,9 +29,11 @@ export const CarouselContext = createContext<{
 
 export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (!carouselRef.current) return;
@@ -41,6 +43,33 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       checkScrollability();
     }
   }, [initialScroll]);
+
+  // Intersection Observer to detect when carousel is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of component is visible
+        rootMargin: '0px'
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [isVisible]);
 
   const checkScrollability = () => {
     if (!carouselRef.current) return;
@@ -73,7 +102,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   return (
     <CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
-      <div className="relative w-full">
+      <div className="relative w-full" ref={containerRef}>
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
           ref={carouselRef}
@@ -85,7 +114,11 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
               <motion.div
                 key={"card" + index}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 * index, ease: "easeOut" } }}
+                animate={{ 
+                  opacity: isVisible ? 1 : 0, 
+                  y: isVisible ? 0 : 20, 
+                  transition: { duration: 0.5, delay: 0.2 * index, ease: "easeOut" } 
+                }}
                 className="last:pr-[5%] md:last:pr-[33%]"
               >
                 {item}

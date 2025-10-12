@@ -6,7 +6,7 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Anna Larsson",
+      name: "Mohammed",
       role: "Gelatostation",
       text: "Vi behövde en pålitlig städfirma för vårt kafé, och valet kunde inte varit bättre. Allt från golv till glassdisken hålls i toppskick. De arbetar diskret innan öppning och lämnar alltid en fräsch doft i lokalen. Våra kunder märker verkligen skillnaden!",
       color: "bg-[#002657]",
@@ -16,17 +16,17 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      name: "Erik Johansson", 
+      name: "Ahmed", 
       role: "Smash Market",
       text: "Som restaurang är det avgörande att allt hålls rent, särskilt i köket. Städteamet gör ett fantastiskt jobb varje kväll inget lämnas åt slumpen. Golv, ytor och köksutrustning är alltid fläckfria. Det märks att de har erfarenhet av restaurangmiljöer!",
       color: "bg-[#0287FE]/70",
-      textColor: "text-white",
-      nameColor: "text-gray-100",
-      roleColor: "text-blue-100"
+      textColor: "text-black",
+      nameColor: "text-gray-900",
+      roleColor: "text-black"
     },
     {
       id: 3,
-      name: "Maria Andersson",
+      name: "Castro",
       role: "Tandklinik",
       text: "Vi är otroligt nöjda med städningen! Kliniken måste alltid vara hygienisk och skinande ren, och teamet lever verkligen upp till det. De är noggranna, punktliga och anpassar sig efter våra öppettider. Våra patienter kommenterar ofta hur fräscht det känns här!",
       color: "bg-gray-900",
@@ -36,8 +36,8 @@ const TestimonialsSection = () => {
     },
     {
       id: 4,
-      name: "Lars Nilsson",
-      role: "Restaurangägare", 
+      name: "Ifrax",
+      role: "Privat person", 
       text: "Jag älskar att komma hem efter jobbet när de har varit här allt doftar rent och ytorna glänser! Städarna är både trevliga och professionella, och jag känner mig trygg med att släppa in dem i mitt hem. Det har verkligen förenklat vardagen.",
       color: "bg-[#C0FA01]",
       textColor: "text-gray-900",
@@ -80,10 +80,10 @@ const TestimonialsSection = () => {
                   const container = document.querySelector('.testimonial-scroll-container');
                   if (container) container.scrollBy({ left: 400, behavior: 'smooth' });
                 }}
-                className="p-3 bg-gray-900 hover:bg-gray-800 rounded-full transition-colors"
+                className="p-3 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors"
                 aria-label="Scroll right"
               >
-                <ChevronRight className="w-6 h-6 text-white" />
+                <ChevronRight className="w-6 h-6 text-gray-700" />
               </button>
             </div>
           </div>
@@ -112,10 +112,10 @@ const TestimonialsSection = () => {
                 const container = document.querySelector('.testimonial-scroll-container');
                 if (container) container.scrollBy({ left: 300, behavior: 'smooth' });
               }}
-              className="p-3 bg-gray-900 hover:bg-gray-800 rounded-full transition-colors"
+              className="p-3 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors"
               aria-label="Scroll right"
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ChevronRight className="w-6 h-6 text-gray-700" />
             </button>
           </div>
         </div>

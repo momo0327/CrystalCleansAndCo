@@ -15,14 +15,14 @@ export default function Footer() {
               {/* <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                 <Sparkles className="h-5 w-5 text-white" />
               </div> */}
-
+{/* 
                           <Image
                             src="/image 1-2.png"
                             width={58}
                             height={58}
                             alt="Crystal Cleans Logo"
                             priority
-                          />
+                          /> */}
                           
               <span className="text-xl font-bold">Crystal Cleans & Co</span>
               <div/>
@@ -31,13 +31,13 @@ export default function Footer() {
               Professional cleaning services with Swedish quality standards.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Link href="https://www.instagram.com/crystalcleansab?igsh=bWhrZHM1aWtpZG4x" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <FaInstagram className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Link href="https://www.tiktok.com/@crystalcleansab?_t=ZN-90O1xIupbde&_r=1" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <FaTiktok className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Link href="https://www.linkedin.com/in/crystal-cleans-ab-1b6b1a367/" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <FaLinkedin className="h-5 w-5" />
               </Link>
             </div>
@@ -69,7 +69,7 @@ export default function Footer() {
               {[
                 { name: "Kontact", href: "#contact" },
                 { name: "FAQ", href: "#faq" },
-                { name: "Recensioner", href: "#recensioner" },
+                { name: "Recensioner", href: "#reviews" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
@@ -90,14 +90,14 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-400">info@cleanpro.com</span>
+                <span className="text-gray-400">CrystalCleansab@gmail.com</span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-0.5" />
                 <span className="text-gray-400">
-                  123 Clean Street
-                  <br />
-                  Stockholm, Sweden 12345
+                Akaciagården 12,Angered                  
+                <br />
+                  Göteborg, Sverige
                 </span>
               </div>
             </div>

@@ -29,7 +29,7 @@ const ServicesSection = () => {
     },
     {
       src: "/window.jpeg",
-      title: "Fönster städ",
+      title: "Fönsterputs",
       category: "Specialtjänster",
       description: "Fyll några enkla uppgifter så är ditt konto igång på nolltid. Det tar en minut.",
       content: <ServiceContent 

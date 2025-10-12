@@ -109,7 +109,7 @@ direction="right"
                   Frequently Asked Questions
                 </h2>
                 <p className="max-w-[900px] text-gray-600 md:text-xl">
-                  Find answers to common questions about our cleaning services, policies, and procedures.
+                Hitta svar på vanliga frågor om våra städtjänster, policys och rutiner.
                 </p>
               </div>
             </div>
@@ -120,7 +120,7 @@ direction="right"
               <p className="text-gray-600 mb-6">Har du fler frågor?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                onClick={() => window.location.href = "mailto:crystalcleans@gmail.com?subject=Hello"}
+                onClick={() => window.location.href = "mailto:crystalcleansab@gmail.com?subject=Hello"}
 
                 className="bg-[#002657]  hover:bg-blue-700">Kontakta Oss</Button>
                 <Button variant="outline" className="border-[#002657]  text-[#002657]  hover:bg-blue-50">

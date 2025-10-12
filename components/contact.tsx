@@ -69,7 +69,7 @@ const SimpleQuoteSection = () => {
                 <Mail className="w-5 h-5 text-gray-600" />
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
-                  <p className="text-lg font-medium text-gray-900">crystalcleans@gmail.com</p>
+                  <p className="text-lg font-medium text-gray-900">crystalcleansab@gmail.com</p>
                 </div>
               </div>
 

@@ -63,7 +63,7 @@ function Hero() {
               size="lg"
               className="bg-white hover:bg-blue-100 shadow-lg borde font-lg text-blue-900"
             >
-              Book Cleaning Now
+              Boka städning
             </Button>
           </motion.div>
         </div>

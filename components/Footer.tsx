@@ -54,7 +54,7 @@ export default function Footer() {
                 "Företagsstädning",
               ].map((service) => (
                 <li key={service}>
-                  <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Link href="#services" className="text-gray-400 hover:text-white transition-colors">
                     {service}
                   </Link>
                 </li>
@@ -67,9 +67,9 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                { name: "Kontact", href: "/contact" },
-                { name: "FAQ", href: "/faq" },
-                { name: "Recensioner", href: "/reviews" },
+                { name: "Kontact", href: "#contact" },
+                { name: "FAQ", href: "#faq" },
+                { name: "Recensioner", href: "#recensioner" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">

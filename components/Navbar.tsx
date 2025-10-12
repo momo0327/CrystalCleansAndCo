@@ -70,7 +70,7 @@ function Navbar() {
           {/* Desktop Buttons */}
           <div className="flex items-center gap-4">
             <Button 
-             onClick={() => window.location.href = "mailto:crystalcleans@gmail.com?subject=Hello"}
+             onClick={() => window.location.href = "mailto:crystalcleansab@gmail.com?subject=Hello"}
             variant="outline" className="hidden md:flex border-[#002657] text-[#002657] hover:bg-blue-50">
               Kontakta
             </Button>
@@ -170,7 +170,7 @@ function Navbar() {
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Mail className="h-4 w-4 text-[#002657]" />
-                <span>crystalcleans@gmail.com</span>
+                <span>crystalcleansab@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <MapPin className="h-4 w-4 text-[#002657]" />

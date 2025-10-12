@@ -164,13 +164,13 @@ const data: CardType[] = [
     },
     {
       category: "",
-      title: "Abdirahman Ali Hassan",
+      title: "Abdirahman Cabdi ",
       src: "/03-copy.jpg",  // Your local image
       content: '',
     },
     {
       category: "",
-      title: "Abdirahman Cabdi",
+      title: "Abdirahman Ali Hassan",
       src: "/08-copy.jpg",  // Your local image
       content: '',
     },

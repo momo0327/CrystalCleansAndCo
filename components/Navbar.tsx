@@ -41,7 +41,7 @@ function Navbar() {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center ml-[-15px]">
               <Image
-                src="/image 1-2.png"
+                src="/favicon.png"
                 width={58}
                 height={58}
                 alt="Crystal Cleans Logo"

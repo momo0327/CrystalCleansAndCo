@@ -1,6 +1,9 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Plus } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 const faqs = [
   {
@@ -33,39 +36,118 @@ const faqs = [
     answer:
       "Vår storstädning är omfattande och inkluderar allt från vanlig städning plus extras som insida av vitvaror, lister, fönsterbrädor, detaljerad badrumsrengöring, skåpsdörrar, lampor och mer. Perfekt för första gången eller en grundlig uppfräschning.",
   },
-  {
-    question: "Hur hanterar ni husdjur?",
-    answer:
-      "Vi älskar husdjur! Berätta gärna om du har husdjur så tar vi lämpliga försiktighetsåtgärder. Vi använder husdjursvänliga produkter och ser till att de är bekväma under städningen.",
-  },
-  {
-    question: "Kan jag göra speciella önskemål?",
-    answer:
-      "Absolut! Vi anpassar oss gärna efter dina behov. Vill du att vi fokuserar extra på vissa ytor eller använder speciella metoder, säg bara till vid bokning eller i din kundprofil.",
-  },
 ]
 
 export function FAQSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="md:px-4 text-white">
-      <div className="w-full max-w-4xl mx-auto">
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="border-b border-blue-100/30"
+    <section ref={sectionRef} id="faq" className="w-full py-12 md:py-24 lg:py-28">
+      <div className="container px-6 md:px-8 lg:px-12 max-w-[1400px] mx-auto">
+        {/* Header Section */}
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+          <div className="space-y-2">
+            {/* Badge - Animates first */}
+            <div
+              className={`transition-all duration-700 ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 -translate-y-4'
+              }`}
+              style={{ transitionDelay: '0ms' }}
             >
-              <AccordionTrigger className="text-left text-white hover:text-blue-200 font-medium text-lg sm:text-xl py-3 sm:py-4">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-200 text-base sm:text-lg pb-4 pt-1 leading-relaxed">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+              <Badge className="bg-white text-[#002657] gap-2 px-4 py-2 mb-6 rounded-full hover:text-[#002657] hover:bg-white dark:bg-blue-900/20 border border-[#002657] dark:border-blue-800">
+                FAQ
+              </Badge>
+            </div>
+
+            {/* Title - Animates second */}
+            <h2 
+              className={`text-3xl font-medium tracking-tighter text-gray-900 md:text-5xl transition-all duration-700 ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 -translate-y-4'
+              }`}
+              style={{ transitionDelay: '150ms' }}
+            >
+              Frequently Asked Questions
+            </h2>
+
+            {/* Description - Animates third */}
+            <p 
+              className={`max-w-[900px] text-gray-600 md:text-xl transition-all duration-700 ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 -translate-y-4'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
+              Hitta svar på vanliga frågor om våra städtjänster, policys och rutiner.
+            </p>
+          </div>
+        </div>
+
+        {/* FAQ Accordion - Much wider */}
+        <div className="w-full">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className={`border-b border-gray-200 transition-all duration-700 ${
+                  isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${450 + (index * 100)}ms` }}
+              >
+                <AccordionTrigger className="text-left text-[#002657] hover:text-[#0270d9] font-medium text-xl sm:text-2xl py-5 sm:py-6 [&>svg]:hidden">
+                  <div className="flex items-center justify-between w-full gap-4 sm:gap-8 pr-2">
+                    <span className="flex-1 text-left">{faq.question}</span>
+                    <Plus className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 transition-transform duration-300 data-[state=open]:rotate-45" />
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-700 text-lg sm:text-xl pb-6 pt-2 leading-relaxed pr-10 sm:pr-16">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
+
+      <style jsx global>{`
+        [data-state="open"] .lucide-plus {
+          transform: rotate(45deg);
+        }
+      `}</style>
     </section>
   )
 }

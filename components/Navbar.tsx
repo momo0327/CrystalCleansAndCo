@@ -3,29 +3,17 @@ import React, { useState } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import {
-  Sparkles,
-  Building2,
-  Car,
-  CheckCircle,
-  Star,
   Phone,
   Mail,
   MapPin,
-  Clock,
-  Shield,
-  Users,
-  Award,
   Menu,
   X,
 } from "lucide-react"
-import { HomeIcon } from "lucide-react"
-import { FAQSection } from "@/components/faq-section"
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -35,64 +23,127 @@ function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  // Add scroll listener
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div>
-      <header className="fixed top-0 z-50 w-full bg-white">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center ml-[-15px]">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+        isScrolled 
+          ? 'py-3' 
+          : 'py-6'
+      }`}>
+        <div className={`transition-all duration-500 ease-in-out ${
+          isScrolled 
+            ? 'container mx-auto px-4 max-w-7xl' 
+            : 'container mx-auto px-4'
+        }`}>
+          <div className={`flex items-center justify-between transition-all duration-500 ease-in-out ${
+            isScrolled 
+              ? 'bg-white/70 backdrop-blur-xl shadow-lg rounded-full px-6 py-3 border border-white/20' 
+              : 'px-2'
+          }`}>
+            {/* Logo */}
+            <div className="flex items-center gap-2 ml-[-8px]">
               <Image
                 src="/favicon.png"
-                width={58}
-                height={58}
+                width={isScrolled ? 60 : 70}
+                height={isScrolled ? 60 : 70}
                 alt="Crystal Cleans Logo"
                 priority
                 onClick={() => window.location.hash = "#"}
+                className="cursor-pointer transition-all duration-300"
               />
-            <span className="text-md font-semibold text-[#002657]">
-              Crystal Cleans & Co
-            </span>
-          </div>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-6">
-            <Link href="#services" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              Tjänster
-            </Link>
-           
-            <Link href="#reviews" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              Recensioner
-            </Link>
-            <Link href="#faq" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              FAQ
-            </Link>
-          </nav>
-          
-          {/* Desktop Buttons */}
-          <div className="flex items-center gap-4">
-            <Button 
-             onClick={() => window.location.href = "mailto:crystalcleansab@gmail.com?subject=Hello"}
-            variant="outline" className="hidden md:flex border-[#002657] text-[#002657] hover:bg-blue-50">
-              Kontakta
-            </Button>
-            <Button 
-                    onClick={() => window.location.hash = "#contact"}
-
-            className="hidden md:flex bg-[#002657] hover:bg-blue-700">Boka Nu</Button>
+              <span className={`text-md hidden md:block font-semibold transition-all duration-300 ${
+                isScrolled ? 'text-[#002657]' : 'text-white'
+              }`}>
+                Crystal Cleans & Co
+              </span>
+            </div>
             
-            {/* Mobile Menu Button */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="md:hidden z-50 relative "
-              onClick={toggleMobileMenu}
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-              <span className="sr-only">Toggle menu</span>
-            </Button>
+            {/* Desktop Navigation */}
+            <nav className={`hidden md:flex gap-2 transition-all duration-300 rounded-full ${
+              isScrolled 
+                ? 'px-0 py-0' 
+                : 'bg-white/10 backdrop-blur-md border border-white/20 px-5 py-2.5'
+            }`}>
+              <Link 
+                href="#services" 
+                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:text-[#002657]' 
+                    : 'text-white hover:bg-white/10'
+                }`}
+              >
+                Expertis
+              </Link>
+             
+              <Link 
+                href="#reviews" 
+                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:text-[#002657]' 
+                    : 'text-white hover:bg-white/10'
+                }`}
+              >
+                Recensioner
+              </Link>
+              
+              <Link 
+                href="#faq" 
+                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:text-[#002657]' 
+                    : 'text-white hover:bg-white/10'
+                }`}
+              >
+                FAQ
+              </Link>
+            </nav>
+            
+            {/* Desktop Buttons */}
+            <div className="flex items-center gap-3">
+              <Button 
+                onClick={() => window.location.hash = "#contact"}
+                className={`hidden md:flex transition-all duration-300 px-12 py-6  text-md rounded-full ${
+                  isScrolled 
+                    ? 'bg-[#002657] hover:bg-[#001a3d] text-white' 
+                    : 'bg-[#002657] hover:bg-[#001a3d] text-white shadow-lg'
+                }`}
+              >
+                Kontakta
+              </Button>
+              
+              {/* Mobile Menu Button */}
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className={`md:hidden z-50 relative transition-all duration-300 rounded-full ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:bg-gray-100' 
+                    : 'text-white hover:bg-white/20 bg-white/10 backdrop-blur-md border border-white/20'
+                }`}
+                onClick={toggleMobileMenu}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -114,13 +165,13 @@ function Navbar() {
         {/* Mobile Menu Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-100">
           <div className="flex items-center gap-2">
-            {/* <Image
-              src="/logo.png"
+            <Image
+              src="/favicon.png"
               width={40}
               height={40}
               alt="Crystal Cleans Logo"
             />
-            <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span> */}
+            <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span>
           </div>
           <Button 
             variant="ghost" 
@@ -142,7 +193,7 @@ function Navbar() {
                 className="block text-xl font-medium text-gray-900 hover:text-[#002657] transition-colors py-3 border-b border-gray-100"
                 onClick={closeMobileMenu}
               >
-                Tjänster
+                Expertis
               </Link>
             
               <Link 
@@ -166,11 +217,11 @@ function Navbar() {
               <h3 className="text-base font-semibold text-gray-900 mb-3">Kontakta oss</h3>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Phone className="h-4 w-4 text-[#002657]" />
-                <span>+46 70 123 45 67</span>
+                <span>+46 76-306 35 43</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Mail className="h-4 w-4 text-[#002657]" />
-                <span>crystalcleansab@gmail.com</span>
+                <span>kontakt@crystalcleans.se</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <MapPin className="h-4 w-4 text-[#002657]" />
@@ -184,14 +235,20 @@ function Navbar() {
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-100 bg-white space-y-3">
           <Button 
             variant="outline" 
-            className="w-full border-[#002657] text-[#002657] hover:bg-blue-50 py-4 text-base"
-            onClick={closeMobileMenu}
+            className="w-full border-[#002657] text-[#002657] hover:bg-blue-50 py-4 text-base rounded-full"
+            onClick={() => {
+              window.location.href = "mailto:kontakt@crystalcleans.se?subject=Hello";
+              closeMobileMenu();
+            }}
           >
             Kontakta
           </Button>
           <Button 
-            className="w-full bg-[#002657] hover:bg-blue-700 py-4 text-base"
-            onClick={closeMobileMenu}
+            className="w-full bg-[#002657] hover:bg-blue-700 py-4 text-base rounded-full"
+            onClick={() => {
+              window.location.hash = "#contact";
+              closeMobileMenu();
+            }}
           >
             Boka Nu
           </Button>

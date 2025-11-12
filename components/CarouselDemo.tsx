@@ -181,7 +181,7 @@ export function CarouselDemo() {
   return (
     <div className="w-full h-full py-20">
       <div className="max-w-7xl mx-auto px-4 mb-10 flex flex-col md:flex-row md:justify-between md:items-start gap-4">
-         <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-neutral-200 mb-6 md:mb-0">
+         <h2 className="relative text-3xl md:text-4xl lg:text-6xl font-medium text-gray-900 dark:text-neutral-200 mb-6 md:mb-0">
                       Vi är Crystal Cleans 
                       {/* Sparkles beside title */}
                     <span className="absolute -top-2 w-8 h-8 text-[#0287FE]">

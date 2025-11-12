@@ -47,12 +47,12 @@ const TestimonialsSection = () => {
   ];
   
   return (
-    <section className="py-10 md:py-36 bg-gray-50">
+    <section className="py-10 md:py-36 ">
       <div className="px-4 md:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 md:mb-12">
-            <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-neutral-200 mb-6 md:mb-0">
+            <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 dark:text-neutral-200 mb-6 md:mb-0">
               Vad våra kunder säger
               {/* Sparkles beside title */}
             <span className="absolute -top-2 w-8 h-8 text-[#0287FE]">

@@ -23,9 +23,9 @@ const CleaningBenefitsSection = () => {
   return (
     <section className=" h-full py-24 md:py-64 px-6 bg-white">
         
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto ">
         {/* Main Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16">
+        <h2 className="text-4xl md:text-6xl font-medium text-gray-900 mb-20">
           Vårt arbete gör skillnad
         </h2>
 

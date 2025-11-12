@@ -14,6 +14,8 @@ import {
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -23,19 +25,39 @@ function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  // Add scroll listener
+  // Add scroll listener with hide/show logic
   React.useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const currentScrollY = window.scrollY;
+      
+      // Determine if navbar should have glass background
+      if (currentScrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+
+      // Show/hide navbar based on scroll direction
+      // Always show in hero section (first ~100vh or 800px)
+      if (currentScrollY < 800) {
+        setIsVisible(true);
+      } else {
+        // After hero section, hide on scroll down, show on scroll up
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down
+          setIsVisible(false);
+        } else {
+          // Scrolling up
+          setIsVisible(true);
+        }
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <div>
@@ -43,6 +65,8 @@ function Navbar() {
         isScrolled 
           ? 'py-3' 
           : 'py-6'
+      } ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         <div className={`transition-all duration-500 ease-in-out ${
           isScrolled 

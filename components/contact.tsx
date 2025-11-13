@@ -29,6 +29,8 @@ const ModernContactSection = () => {
     { value: "Hemstädning", label: "Hemstädning" },
     { value: "Fönsterputs", label: "Fönsterputs" },
     { value: "Företagsstädning", label: "Företagsstädning" },
+    { value: "Storstäd", label: "Storstäd" },
+    { value: "Textiltvätt", label: "Textiltvätt" },
   ];
 
   useEffect(() => {
@@ -472,7 +474,7 @@ const ModernContactSection = () => {
       {/* Close dropdown when clicking outside */}
       {isDropdownOpen && (
         <div
-          className="fixed inset-0 z-40"
+         className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 overflow-hidden"
           onClick={() => setIsDropdownOpen(false)}
         />
       )}

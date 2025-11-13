@@ -41,7 +41,7 @@ function BeforeAfterSection() {
               
               <p className="text-md md:text-xl text-gray-600 leading-relaxed max-w-lg">
                 Fyll i kontaktformuläret eller ring och låt oss ta 
-                ett förutsättningslöst samtal om hur vi kan hjälpa er?
+                ett förutsättningslöst samtal om hur vi kan hjälpa er
               </p>
             </div>
             

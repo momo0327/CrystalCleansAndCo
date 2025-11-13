@@ -294,15 +294,6 @@ const ModernContactSection = () => {
                 </button>
               </div>
 
-              {/* Success Message */}
-              {submitted && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-2xl">
-                  <p className="text-green-800 font-semibold text-center">
-                    ✓ Tack! Vi kontaktar dig inom 24 timmar.
-                  </p>
-                </div>
-              )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -456,6 +447,15 @@ const ModernContactSection = () => {
                     och samtycker till att ta emot marknadsföringsmaterial.
                   </label>
                 </div>
+
+              {/* Success Message */}
+              {submitted && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-2xl">
+                  <p className="text-green-800 font-semibold text-center">
+                    ✓ Tack! Vi kontaktar dig inom 24 timmar.
+                  </p>
+                </div>
+              )}
 
                 {/* Submit Button */}
                 <button

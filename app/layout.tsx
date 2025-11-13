@@ -16,7 +16,14 @@ export const metadata: Metadata = {
     'Svensk kvalitet',
     'Miljövänlig städning',
   ],
+  verification: {
+    other: {
+      'google-site-verification':
+        '8q9xaiarCVuNvIat5Ikg_W0ln-8WzQtfWGn4RaxMhus',
+    },
+  },
 }
+
 
 export default function RootLayout({
   children,

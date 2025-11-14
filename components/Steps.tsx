@@ -74,7 +74,7 @@ const Steps = () => {
             style={{ transitionDelay: '0ms' }}
           >
             <Badge className="bg-[#002657] border border-white hover:bg-[#002657] text-white gap-2 px-4 py-2 mb-6">
-              Steg
+              Process
             </Badge>
           </div>
 

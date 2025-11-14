@@ -10,6 +10,7 @@ import {
   Menu,
   X,
 } from "lucide-react"
+import { FaInstagram, FaTiktok, FaLinkedin } from 'react-icons/fa';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -112,6 +113,16 @@ function Navbar() {
               >
                 Expertis
               </Link>
+              <Link 
+                href="#About" 
+                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:text-[#002657]' 
+                    : 'text-white hover:bg-white/10'
+                }`}
+              >
+                Om oss
+              </Link>
              
               <Link 
                 href="#reviews" 
@@ -187,15 +198,15 @@ function Navbar() {
         ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
         {/* Mobile Menu Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-100">
+        <div className="flex items-center justify-between p-6  border-gray-100">
           <div className="flex items-center gap-2">
-            <Image
+            {/* <Image
               src="/favicon.png"
               width={40}
               height={40}
               alt="Crystal Cleans Logo"
-            />
-            <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span>
+            /> */}
+            {/* <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span> */}
           </div>
           <Button 
             variant="ghost" 
@@ -210,26 +221,34 @@ function Navbar() {
         {/* Mobile Menu Content */}
         <div className="h-[calc(100vh-160px)] flex flex-col">
           {/* Navigation Links */}
-          <div className="px-6 py-6 overflow-y-auto">
+          <div className="px-6  overflow-y-auto">
             <div className="space-y-4">
               <Link 
                 href="#services" 
-                className="block text-xl font-medium text-gray-900 hover:text-[#002657] transition-colors py-3 border-b border-gray-100"
+                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors py-3  border-gray-100"
                 onClick={closeMobileMenu}
               >
                 Expertis
               </Link>
+
+              <Link 
+                href="#About" 
+                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors py-3  border-gray-100"
+                onClick={closeMobileMenu}
+              >
+                Om oss
+              </Link>
             
               <Link 
                 href="#reviews" 
-                className="block text-xl font-medium text-gray-900 hover:text-[#002657] transition-colors py-3 border-b border-gray-100"
+                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors py-3  border-gray-100"
                 onClick={closeMobileMenu}
               >
                 Recensioner
               </Link>
               <Link 
                 href="#faq" 
-                className="block text-xl font-medium text-gray-900 hover:text-[#002657] transition-colors py-3 border-b border-gray-100"
+                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors  py-3 border-gray-100"
                 onClick={closeMobileMenu}
               >
                 FAQ
@@ -237,7 +256,7 @@ function Navbar() {
             </div>
 
             {/* Contact Info */}
-            <div className="mt-8 space-y-3">
+            <div className="mt-8 space-y-3 ">
               <h3 className="text-base font-semibold text-gray-900 mb-3">Kontakta oss</h3>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Phone className="h-4 w-4 text-[#002657]" />
@@ -252,11 +271,22 @@ function Navbar() {
                 <span>Göteborg, Sverige</span>
               </div>
             </div>
+            <div className="flex py-6 gap-4 ">
+              <Link href="https://www.instagram.com/crystalcleansab?igsh=bWhrZHM1aWtpZG4x" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <FaInstagram className="h-5 w-5" />
+              </Link>
+              <Link href="https://www.tiktok.com/@crystalcleansab?_t=ZN-90O1xIupbde&_r=1" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <FaTiktok className="h-5 w-5" />
+              </Link>
+              <Link href="https://www.linkedin.com/in/crystal-cleans-ab-1b6b1a367/" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <FaLinkedin className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Mobile CTA Buttons - Fixed at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-100 bg-white space-y-3">
+        <div className="absolute mb-28 bottom-0 left-0 right-0 p-6 border-t rounded-2xl  bg-gray-50/20 space-y-3">
           <Button 
             variant="outline" 
             className="w-full border-[#002657] text-[#002657] hover:bg-blue-50 py-4 text-base rounded-full"

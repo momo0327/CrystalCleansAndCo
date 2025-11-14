@@ -29,7 +29,7 @@ const CTASection = () => {
             <div className="max-w-2xl">
 
               {/* Heading */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-10">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight mb-10">
                 Vi hjälper stora som
                 <br />
                 små företag

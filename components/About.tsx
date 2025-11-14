@@ -16,7 +16,7 @@ export default function About() {
               </div>
               
               <div className="relative z-10">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-light font-serif text-white leading-tight italic">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal font-serif text-white leading-tight italic">
                 Dentme är framtidens tandvård – tillgänglig, prisvärd, förutsägbar och innovativ.                
                 </h1>
               </div>
@@ -24,7 +24,7 @@ export default function About() {
 
             {/* Text Container - Gray Background (40%) */}
             <div className="bg-blue-50 rounded-3xl p-6 md:p-8 flex flex-col justify-center">
-              <p className="text-lg md:text-xl font-light text-gray-800 leading-relaxed">
+              <p className="text-lg md:text-xl font-normal text-gray-800 leading-relaxed">
                 Vi förändrar hur människor tar hand om sina leenden genom en enkel och smart prenumerationsmodell som gör tandvård lika självklart som ett gymkort.
               </p>
               <div className="w-12 h-12 text-[#0287FE]/60">

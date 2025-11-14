@@ -157,7 +157,7 @@ export const TestimonialCarousel = ({
           transition={{ duration: 0.5, delay: 0.1 }}
           className="relative"
         >
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-neutral-200 max-w-3xl">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-normal text-gray-900 dark:text-neutral-200 max-w-3xl">
             {title}
           </h2>
           {/* Decorative Sparkles */}

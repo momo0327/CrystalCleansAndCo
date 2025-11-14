@@ -36,7 +36,7 @@ function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-light text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-normal text-white leading-tight">
                 Kristallklara ytor,
                 <br />
                 professionell perfektion

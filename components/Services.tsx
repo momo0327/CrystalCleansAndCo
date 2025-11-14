@@ -166,13 +166,13 @@ const ServicesSection = () => {
             style={{ transitionDelay: '0ms' }}
           >
             <Badge className="bg-white text-[#002657] gap-2 px-4 py-2 mb-6 rounded-full hover:bg-white hover:text-[#002657] dark:bg-blue-900/20 border border-[#002657] dark:border-blue-800">
-              Tjänster
+              Expertis
             </Badge>
           </div>
 
           {/* Title - Animates second */}
           <h2 
-            className={`text-5xl md:text-7xl font-light text-neutral-900 mb-6 transition-all duration-700 ${
+            className={`text-5xl md:text-7xl font-normal text-neutral-900 mb-6 transition-all duration-700 ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 -translate-y-4'
@@ -209,7 +209,7 @@ const ServicesSection = () => {
                       : 'opacity-0 group-hover:opacity-50'
                   }`}
                 />
-                <span className="text-2xl md:text-4xl font-light">
+                <span className="text-2xl md:text-4xl font-normal">
                   {service.title}
                 </span>
               </button>

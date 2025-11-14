@@ -103,7 +103,7 @@ const Achievements = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-gray-50">
+    <section id='About' ref={sectionRef} className="py-24 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Heading */}
@@ -124,7 +124,7 @@ const Achievements = () => {
 
             {/* Title - Animates second */}
             <h2 
-              className={`text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight mb-12 transition-all duration-700 ${
+              className={`text-4xl md:text-5xl lg:text-6xl font-normal text-gray-900 leading-tight mb-12 transition-all duration-700 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 -translate-y-4'
@@ -147,7 +147,7 @@ const Achievements = () => {
                 }`}
                 style={{ transitionDelay: `${300 + (index * 150)}ms` }}
               >
-                <h3 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 tabular-nums">
+                <h3 className="text-5xl md:text-6xl lg:text-7xl font-normal text-gray-900 tabular-nums">
                   {formatNumber(counts[index], index)}{stat.suffix}
                 </h3>
                 <p className="text-gray-500 text-base md:text-lg leading-relaxed">

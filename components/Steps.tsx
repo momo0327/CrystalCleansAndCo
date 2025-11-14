@@ -80,7 +80,7 @@ const Steps = () => {
 
           {/* Title - Animates second */}
           <h2 
-            className={`text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight max-w-3xl transition-all duration-700 ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight max-w-3xl transition-all duration-700 ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 -translate-y-4'
@@ -121,7 +121,7 @@ const Steps = () => {
               <div className="flex gap-6">
                 {/* Number */}
                 <div className="flex-shrink-0">
-                  <span className="text-5xl md:text-6xl font-light text-white/30 group-hover:text-white/50 transition-colors duration-300">
+                  <span className="text-5xl md:text-6xl font-normal text-white/30 group-hover:text-white/50 transition-colors duration-300">
                     {step.number}
                   </span>
                 </div>

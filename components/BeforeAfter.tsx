@@ -33,7 +33,7 @@ function BeforeAfterSection() {
             </div>
             
             <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-light text-gray-900">
+              <h2 className="text-4xl md:text-5xl font-normal text-gray-900">
                 Imponerad av
                 <br />
                 resultatet?

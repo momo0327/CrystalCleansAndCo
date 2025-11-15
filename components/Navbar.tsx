@@ -211,12 +211,12 @@ function Navbar() {
         {/* Mobile Menu Header */}
         <div className="flex items-center justify-between ml-[-12px]  border-gray-100">
           <div className="flex items-center gap-2">
-            <Image
+            {/* <Image
               src="/logo2.png"
               width={200}
               height={200}
               alt="Crystal Cleans Logo"
-            />
+            /> */}
             {/* <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span> */}
           </div>
           <Button 

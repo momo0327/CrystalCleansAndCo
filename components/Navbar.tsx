@@ -83,7 +83,7 @@ function Navbar() {
             <div className="flex items-center  ml-[8px] md:ml-[-8px] ">
               {/* Desktop Logo */}
               <Image
-                src="/logo2.png"
+                src="/Group 8.png"
                 width={isScrolled ? 120 : 200}
                 height={isScrolled ? 120 : 200}
                 alt="Crystal Cleans Logo"
@@ -209,14 +209,14 @@ function Navbar() {
         ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
         {/* Mobile Menu Header */}
-        <div className="flex items-center justify-between ml-[-12px]  border-gray-100">
+        <div className="flex items-center justify-between py-12 p-4  border-gray-100">
           <div className="flex items-center gap-2">
-            {/* <Image
-              src="/logo2.png"
-              width={200}
-              height={200}
+            <Image
+              src="/Group 8.png"
+              width={150}
+              height={150}
               alt="Crystal Cleans Logo"
-            /> */}
+            />
             {/* <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span> */}
           </div>
           <Button 
@@ -267,7 +267,7 @@ function Navbar() {
             </div>
 
             {/* Contact Info */}
-            <div className="mt-8 space-y-3 ">
+            <div className="mt-4 space-y-3 ">
               <h3 className="text-base font-semibold text-gray-900 mb-3">Kontakta oss</h3>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Phone className="h-4 w-4 text-[#002657]" />

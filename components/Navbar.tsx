@@ -80,21 +80,32 @@ function Navbar() {
               : 'px-2'
           }`}>
             {/* Logo */}
-            <div className="flex items-center gap-2 ml-[-8px]">
+            <div className="flex items-center  ml-[8px] md:ml-[-8px] ">
+              {/* Desktop Logo */}
               <Image
-                src="/favicon.png"
-                width={isScrolled ? 60 : 70}
-                height={isScrolled ? 60 : 70}
+                src="/logo2.png"
+                width={isScrolled ? 120 : 200}
+                height={isScrolled ? 120 : 200}
                 alt="Crystal Cleans Logo"
                 priority
                 onClick={() => window.location.hash = "#"}
-                className="cursor-pointer transition-all duration-300"
+                className="hidden md:block cursor-pointer transition-all duration-300"
               />
-              <span className={`text-md hidden md:block font-semibold transition-all duration-300 ${
+              {/* Mobile Logo */}
+              <Image
+                src="/mobile.png"
+                width={isScrolled ? 30 : 40}
+                height={isScrolled ? 30 : 40}
+                alt="Crystal Cleans Logo"
+                priority
+                onClick={() => window.location.hash = "#"}
+                className="md:hidden cursor-pointer transition-all duration-300"
+              />
+              {/* <span className={`text-md hidden md:block font-semibold transition-all duration-300 ${
                 isScrolled ? 'text-[#002657]' : 'text-white'
               }`}>
                 Crystal Cleans & Co
-              </span>
+              </span> */}
             </div>
             
             {/* Desktop Navigation */}

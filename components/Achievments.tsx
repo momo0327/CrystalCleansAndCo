@@ -7,7 +7,7 @@ const Achievements = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState([0, 0, 0, 0]);
   const sectionRef = useRef<HTMLElement>(null);
-  const hasAnimated = useRef(false);
+  const animationRef = useRef<NodeJS.Timeout[]>([]);
 
   const stats = [
     {
@@ -47,9 +47,11 @@ const Achievements = () => {
 
   // Animate counting up
   useEffect(() => {
-    if (isVisible && !hasAnimated.current) {
-      hasAnimated.current = true;
-      
+    // Clear any existing animations
+    animationRef.current.forEach(timer => clearInterval(timer));
+    animationRef.current = [];
+
+    if (isVisible) {
       stats.forEach((stat, index) => {
         const duration = 2000; // 2 seconds
         const steps = 60;
@@ -72,17 +74,26 @@ const Achievements = () => {
             return newCounts;
           });
         }, duration / steps);
+
+        animationRef.current.push(timer);
       });
+    } else {
+      // Reset counts when not visible
+      setCounts([0, 0, 0, 0]);
     }
+
+    // Cleanup function
+    return () => {
+      animationRef.current.forEach(timer => clearInterval(timer));
+    };
   }, [isVisible]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
+          // Animate both when entering and leaving the viewport
+          setIsVisible(entry.isIntersecting);
         });
       },
       {

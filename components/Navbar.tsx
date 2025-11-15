@@ -209,14 +209,14 @@ function Navbar() {
         ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
         {/* Mobile Menu Header */}
-        <div className="flex items-center justify-between p-6  border-gray-100">
+        <div className="flex items-center justify-between ml-[-12px]  border-gray-100">
           <div className="flex items-center gap-2">
-            {/* <Image
-              src="/favicon.png"
-              width={40}
-              height={40}
+            <Image
+              src="/logo2.png"
+              width={200}
+              height={200}
               alt="Crystal Cleans Logo"
-            /> */}
+            />
             {/* <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span> */}
           </div>
           <Button 
@@ -297,7 +297,7 @@ function Navbar() {
         </div>
 
         {/* Mobile CTA Buttons - Fixed at bottom */}
-        <div className="absolute mb-28 bottom-0 left-0 right-0 p-6 border-t rounded-2xl  bg-gray-50/20 space-y-3">
+        <div className="absolute mb-14 bottom-0 left-0 right-0 p-6 border-t rounded-2xl  bg-gray-50/20 space-y-3">
           <Button 
             variant="outline" 
             className="w-full border-[#002657] text-[#002657] hover:bg-blue-50 py-4 text-base rounded-full"

@@ -129,9 +129,8 @@ const ServicesSection = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
+          // Animate both when entering and leaving the viewport
+          setIsVisible(entry.isIntersecting);
         });
       },
       {

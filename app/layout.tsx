@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Skinande rent – din pålitliga städpartner',
@@ -25,15 +26,10 @@ export const metadata: Metadata = {
 }
 
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sv">
       <head>
-        {/* ✅ Usercentrics scripts – must come before any scripts that require consent */}
         <script
           src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"
           async
@@ -45,7 +41,25 @@ export default function RootLayout({
           async
         ></script>
       </head>
-      <body>{children}</body>
+
+      <body>
+        {/* ⭐ Google Analytics (GA4) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-47ZP0GW9XS"
+          strategy="afterInteractive"
+        />
+
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-47ZP0GW9XS');
+          `}
+        </Script>
+
+        {children}
+      </body>
     </html>
   )
 }

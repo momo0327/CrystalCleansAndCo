@@ -271,7 +271,7 @@ function Navbar() {
               <h3 className="text-base font-semibold text-gray-900 mb-3">Kontakta oss</h3>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Phone className="h-4 w-4 text-[#002657]" />
-                <span>+46 76-306 35 43</span>
+                <span>+46 31-373 50 53</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 text-sm">
                 <Mail className="h-4 w-4 text-[#002657]" />

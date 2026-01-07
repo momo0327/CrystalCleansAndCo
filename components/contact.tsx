@@ -213,7 +213,7 @@ const ModernContactSection = () => {
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Telefon</p>
                   <a href="tel:+46763063543" className="text-lg font-medium hover:text-[#0287FE] transition-colors">
-                    +46 76-306 35 43
+                    +46 31-373 50 53
                   </a>
                 </div>
               </div>
@@ -336,7 +336,7 @@ const ModernContactSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="+46 76-306 35 43"
+                    placeholder="+46 31-373 50 53"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:border-transparent transition-all bg-gray-50"
                     required
                   />

@@ -160,7 +160,7 @@ direction="right"
 
                 className="bg-[#002657]  hover:bg-blue-700">Kontakta Oss</Button>
                 <Button variant="outline" className="border-[#002657]  text-[#002657]  hover:bg-blue-50">
-                  <Phone className="mr-2 h-4 w-4" />  +46 76-306 35 43
+                  <Phone className="mr-2 h-4 w-4" />  +46 31-373 50 53
                 </Button>
               </div>
             </div> */}

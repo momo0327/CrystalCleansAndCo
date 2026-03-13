@@ -6,7 +6,7 @@ import Link from "next/link"
 import { FaInstagram,FaLinkedin, FaTiktok } from "react-icons/fa"
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-darkBlue text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -85,15 +85,15 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-blue-400" />
+                <Phone className="h-5 w-5 text-lightBlue" />
                 <span className="text-gray-400">+46 31-373 50 53</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-blue-400" />
+                <Mail className="h-5 w-5 text-lightBlue" />
                 <span className="text-gray-400">kontakt@crystalcleans.se</span>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-blue-400 mt-0.5" />
+                <MapPin className="h-5 w-5 text-lightBlue mt-0.5" />
                 <span className="text-gray-400">
                 Akaciagården 12,Angered                  
                 <br />

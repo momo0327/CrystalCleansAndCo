@@ -40,9 +40,9 @@ const CTASection = () => {
                 <Button
                   onClick={() => window.location.hash = "#contact"}
                   size="lg"
-                  className="bg-white/90 hover:bg-white text-neutral-900 font-medium px-8 py-6 text-lg rounded-xl backdrop-blur-sm transition-all inline-flex items-center gap-2 group"
+                  className="bg-white/90 hover:bg-white text-neutral-900 font-titleFont px-8 py-6 text-lg rounded-xl backdrop-blur-sm transition-all inline-flex items-center gap-2 group"
                 >
-                  Ta kontakt
+                  KONTAKT
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 {/* <Button

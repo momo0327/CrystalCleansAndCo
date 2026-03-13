@@ -21,12 +21,12 @@ const CleaningBenefitsSection = () => {
   ];
 
   return (
-    <section className=" h-full py-24 md:py-64 px-6 bg-white">
+    <section className=" h-full py-24 md:py-64 px-6 bg-bgColor">
         
       <div className="max-w-6xl mx-auto ">
         {/* Main Heading */}
-        <h2 className="text-4xl md:text-6xl font-medium text-gray-900 mb-20">
-          Vårt arbete gör skillnad
+        <h2 className="text-4xl md:text-6xl font-titleFont text-darkBlue mb-20">
+          VÅRT ARBETE GÖR SKILLNAD
         </h2>
 
         {/* Benefits Grid */}
@@ -34,8 +34,8 @@ const CleaningBenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <div key={index} className="space-y-6">
               {/* Icon */}
-              <div className=" w-8 h-8 md:w-12 md:h-12 bg-blue-400 rounded-full flex items-center justify-center">
-                <benefit.icon className=" w-4 h-4 md:w-6 md:h-6 text-gray-900" />
+              <div className=" w-8 h-8 md:w-12 md:h-12 bg-lightBlue rounded-full flex items-center justify-center">
+                <benefit.icon className=" w-4 h-4 md:w-6 md:h-6 text-darkBlue" />
               </div>
               
               {/* Content */}

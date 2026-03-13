@@ -3,20 +3,36 @@ import './globals.css'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Skinande rent – din pålitliga städpartner',
-  description: 'Skinande rent – din pålitliga städpartner',
+  title: 'Crystal Cleans & Co – Professionell Städtjänst i Göteborg',
+  description: 'Professionell städtjänst i Göteborg. Vi erbjuder flyttstädning, hemstädning, kontorsstädning och fönsterputs. Boka städning idag – kristallklara ytor, professionell perfektion.',
   generator: 'v0.dev',
   applicationName: 'Crystal Cleans & Co',
   keywords: [
-    'Städning',
+    'Städning Göteborg',
     'Flyttstädning',
     'Hemstädning',
     'Fönsterputs',
     'Företagsstädning',
+    'Kontorsstädning',
     'Professionell städning',
     'Svensk kvalitet',
     'Miljövänlig städning',
+    'Crystal Cleans',
+    'Städfirma Göteborg',
   ],
+  openGraph: {
+    title: 'Crystal Cleans & Co – Professionell Städtjänst i Göteborg',
+    description: 'Professionell städtjänst i Göteborg. Flyttstädning, hemstädning, kontorsstädning och fönsterputs. Kristallklara ytor, professionell perfektion.',
+    url: 'https://crystalcleans.se',
+    siteName: 'Crystal Cleans & Co',
+    locale: 'sv_SE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Crystal Cleans & Co – Professionell Städtjänst',
+    description: 'Professionell städtjänst i Göteborg. Boka städning idag!',
+  },
   verification: {
     other: {
       'google-site-verification':
@@ -28,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="sv">
+    <html lang="sv" suppressHydrationWarning>
       <head>
         <script
           src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"
@@ -42,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ></script>
       </head>
 
-      <body>
+      <body suppressHydrationWarning>
         {/* ⭐ Google Analytics (GA4) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-47ZP0GW9XS"

@@ -10,12 +10,13 @@ function Hero() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Background Video - Full Screen */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-darkBlue">
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
         >
           <source src="/clean.mp4" type="video/mp4" />
@@ -32,14 +33,14 @@ function Hero() {
             {/* Left Column - Main Heading */}
             <motion.div
               className="space-y-8"
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 1, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-normal text-white leading-tight">
-                Kristallklara ytor,
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-titleFont text-white leading-tight">
+                KRISTALLKLARA YTOR,
                 <br />
-                professionell perfektion
+                PROFISSIONEL PERFEKTION
               </h1>
 
               {/* CTA Buttons */}
@@ -47,9 +48,9 @@ function Hero() {
                 <Button
                   onClick={() => (window.location.hash = "#contact")}
                   size="lg"
-                  className="bg-white/90 hover:bg-white text-neutral-900 font-medium px-8 py-6 text-lg rounded-lg backdrop-blur-sm transition-all inline-flex items-center gap-2 group"
+                  className="bg-lightBlue hover:bg-white text-darkBlue font-titleFont px-7 py-7 text-lg rounded-full backdrop-blur-sm transition-all inline-flex items-center gap-2 group"
                 >
-                  Kontakta Oss
+                  BOKA STÄDNING
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
@@ -58,7 +59,7 @@ function Hero() {
             {/* Right Column - Avatar Circles & Reviews */}
             <motion.div
               className="space-y-6 lg:pb-4"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 1, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >

@@ -66,6 +66,13 @@ const config = {
           900: "#1e3a8a",
           950: "#172554",
         },
+        darkBlue: "#0D1526",
+        lightBlue: "#B6CBF9",
+        sand: "#F2ECE5",
+        bgColor: "#FDF8F1",
+      },
+      fontFamily: {
+        titleFont: ['title-font', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

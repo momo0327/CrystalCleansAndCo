@@ -1,22 +1,11 @@
 "use client";
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Menu,
-  X,
-} from "lucide-react"
-import { FaInstagram, FaTiktok, FaLinkedin } from 'react-icons/fa';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -26,297 +15,178 @@ function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  // Add scroll listener with hide/show logic
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Determine if navbar should have glass background
-      if (currentScrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-
-      // Show/hide navbar based on scroll direction
-      // Always show in hero section (first ~100vh or 800px)
-      if (currentScrollY < 800) {
-        setIsVisible(true);
-      } else {
-        // After hero section, hide on scroll down, show on scroll up
-        if (currentScrollY > lastScrollY) {
-          // Scrolling down
-          setIsVisible(false);
-        } else {
-          // Scrolling up
-          setIsVisible(true);
-        }
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    closeMobileMenu();
+  };
 
   return (
-    <div>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled 
-          ? 'py-3' 
-          : 'py-6'
-      } ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}>
-        <div className={`transition-all duration-500 ease-in-out ${
-          isScrolled 
-            ? 'container mx-auto px-4 max-w-7xl' 
-            : 'container mx-auto px-4'
-        }`}>
-          <div className={`flex items-center justify-between transition-all duration-500 ease-in-out ${
-            isScrolled 
-              ? 'bg-white/70 backdrop-blur-xl shadow-lg rounded-full px-6 py-3 border border-white/20' 
-              : 'px-2'
-          }`}>
+    <div className="overflow-x-hidden">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-bgColor shadow-sm">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div className="flex items-center  ml-[8px] md:ml-[-8px] ">
-              {/* Desktop Logo */}
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/Group 8.png"
-                width={isScrolled ? 120 : 200}
-                height={isScrolled ? 120 : 200}
-                alt="Crystal Cleans Logo"
+                width={140}
+                height={140}
+                alt="Crystal Cleans & Co - Professionell Städtjänst"
                 priority
-                onClick={() => window.location.hash = "#"}
-                className="hidden md:block cursor-pointer transition-all duration-300"
+                className="cursor-pointer"
               />
-              {/* Mobile Logo */}
-              <Image
-                src="/mobile.png"
-                width={isScrolled ? 30 : 40}
-                height={isScrolled ? 30 : 40}
-                alt="Crystal Cleans Logo"
-                priority
-                onClick={() => window.location.hash = "#"}
-                className="md:hidden cursor-pointer transition-all duration-300"
-              />
-              {/* <span className={`text-md hidden md:block font-semibold transition-all duration-300 ${
-                isScrolled ? 'text-[#002657]' : 'text-white'
-              }`}>
-                Crystal Cleans & Co
-              </span> */}
-            </div>
-            
+            </Link>
+
             {/* Desktop Navigation */}
-            <nav className={`hidden md:flex gap-2 transition-all duration-300 rounded-full ${
-              isScrolled 
-                ? 'px-0 py-0' 
-                : 'bg-white/10 backdrop-blur-md border border-white/20 px-5 py-2.5'
-            }`}>
-              <Link 
-                href="#services" 
-                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:text-[#002657]' 
-                    : 'text-white hover:bg-white/10'
-                }`}
+            <nav className="hidden lg:flex items-center gap-8">
+              <button
+                onClick={() => scrollToSection('services')}
+                className="text-darkBlue hover:text-lightBlue transition-colors font-medium"
               >
-                Expertis
-              </Link>
-              <Link 
-                href="#About" 
-                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:text-[#002657]' 
-                    : 'text-white hover:bg-white/10'
-                }`}
+                Tjänster
+              </button>
+
+              <button
+                onClick={() => scrollToSection('About')}
+                className="text-darkBlue hover:text-lightBlue transition-colors font-medium"
               >
                 Om oss
-              </Link>
-             
-              <Link 
-                href="#reviews" 
-                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:text-[#002657]' 
-                    : 'text-white hover:bg-white/10'
-                }`}
+              </button>
+
+              <button
+                onClick={() => scrollToSection('reviews')}
+                className="text-darkBlue hover:text-lightBlue transition-colors font-medium"
               >
                 Recensioner
-              </Link>
-              
-              <Link 
-                href="#faq" 
-                className={`px-5 py-2 text-md font-medium transition-all duration-300 rounded-full ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:text-[#002657]' 
-                    : 'text-white hover:bg-white/10'
-                }`}
-              >
-                FAQ
-              </Link>
+              </button>
             </nav>
-            
-            {/* Desktop Buttons */}
-            <div className="flex items-center gap-3">
-              <Button 
-                onClick={() => window.location.hash = "#contact"}
-                className={`hidden md:flex transition-all duration-300 px-12 py-6  text-md rounded-full ${
-                  isScrolled 
-                    ? 'bg-[#002657] hover:bg-[#001a3d] text-white' 
-                    : 'bg-[#002657] hover:bg-[#001a3d] text-white shadow-lg'
-                }`}
+
+            {/* Desktop CTA Button */}
+            <div className="hidden lg:flex items-center">
+              <Button
+                onClick={() => scrollToSection('contact')}
+                className="bg-lightBlue hover:bg-[#9db5e8] text-darkBlue text-md font-titleFont font-bold px-4 py-6 rounded-full transition-all uppercase tracking-wide"
               >
-                Kontakta
-              </Button>
-              
-              {/* Mobile Menu Button */}
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className={`md:hidden z-50 relative transition-all duration-300 rounded-full ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:bg-gray-100' 
-                    : 'text-white hover:bg-white/20 bg-white/10 backdrop-blur-md border border-white/20'
-                }`}
-                onClick={toggleMobileMenu}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="h-5 w-5" />
-                ) : (
-                  <Menu className="h-5 w-5" />
-                )}
-                <span className="sr-only">Toggle menu</span>
+                BOKA STÄD
               </Button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden w-8 h-6 flex flex-col justify-center gap-1.5 relative z-[70]"
+              aria-label="Toggle menu"
+            >
+              <span
+                className={`block h-0.5 w-full bg-darkBlue transition-all duration-300 ${
+                  isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-darkBlue transition-all duration-300 ${
+                  isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
+                }`}
+              />
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
-          onClick={closeMobileMenu}
-        />
-      )}
-
-      {/* Mobile Menu */}
-      <div className={`
-        fixed top-0 right-0 h-screen w-full bg-white z-50 md:hidden
-        transform transition-transform duration-300 ease-in-out
-        ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-      `}>
-        {/* Mobile Menu Header */}
-        <div className="flex items-center justify-between py-12 p-4  border-gray-100">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/Group 8.png"
-              width={150}
-              height={150}
-              alt="Crystal Cleans Logo"
-            />
-            {/* <span className="text-lg font-semibold text-[#002657]">Crystal Cleans & Co</span> */}
-          </div>
-          <Button 
-            variant="ghost" 
-            size="icon"
+      {/* Mobile Menu Overlay - Covers Entire Screen */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-lightBlue transition-opacity duration-300 ${
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto z-[60]' : 'opacity-0 pointer-events-none invisible'
+        }`}
+        style={{ zIndex: isMobileMenuOpen ? 60 : -9999 }}
+      >
+        {/* Close Button (X) - Top Right */}
+        <div className="absolute top-0 right-0 p-6">
+          <button
             onClick={closeMobileMenu}
-            className="text-gray-500 hover:text-gray-700"
+            className="w-8 h-6 flex flex-col justify-center gap-1.5"
+            aria-label="Close menu"
           >
-            <X className="h-6 w-6" />
-          </Button>
+            <span className="block h-0.5 w-full bg-darkBlue transition-all duration-300 rotate-45 translate-y-1" />
+            <span className="block h-0.5 w-full bg-darkBlue transition-all duration-300 -rotate-45 -translate-y-1" />
+          </button>
         </div>
 
         {/* Mobile Menu Content */}
-        <div className="h-[calc(100vh-160px)] flex flex-col">
-          {/* Navigation Links */}
-          <div className="px-6  overflow-y-auto">
-            <div className="space-y-4">
-              <Link 
-                href="#services" 
-                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors py-3  border-gray-100"
-                onClick={closeMobileMenu}
-              >
-                Expertis
-              </Link>
+        <div className="flex flex-col h-full justify-between px-6 pt-32 pb-16">
+          {/* Navigation Links - Top */}
+          <div className="flex flex-col space-y-10">
+            <button
+              onClick={() => scrollToSection('services')}
+              className="text-5xl font-titleFont text-darkBlue hover:text-darkBlue/80 transition-colors text-left"
+            >
+              TJÄNSTER
+            </button>
 
-              <Link 
-                href="#About" 
-                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors py-3  border-gray-100"
-                onClick={closeMobileMenu}
-              >
-                Om oss
-              </Link>
-            
-              <Link 
-                href="#reviews" 
-                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors py-3  border-gray-100"
-                onClick={closeMobileMenu}
-              >
-                Recensioner
-              </Link>
-              <Link 
-                href="#faq" 
-                className="block text-3xl font-normal text-gray-900 hover:text-[#002657] transition-colors  py-3 border-gray-100"
-                onClick={closeMobileMenu}
-              >
-                FAQ
-              </Link>
-            </div>
+            <button
+              onClick={() => scrollToSection('About')}
+              className="text-5xl font-titleFont text-darkBlue hover:text-darkBlue/80 transition-colors text-left"
+            >
+              OM OSS
+            </button>
 
-            {/* Contact Info */}
-            <div className="mt-4 space-y-3 ">
-              <h3 className="text-base font-semibold text-gray-900 mb-3">Kontakta oss</h3>
-              <div className="flex items-center gap-3 text-gray-600 text-sm">
-                <Phone className="h-4 w-4 text-[#002657]" />
-                <span>+46 31-373 50 53</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-600 text-sm">
-                <Mail className="h-4 w-4 text-[#002657]" />
-                <span>kontakt@crystalcleans.se</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-600 text-sm">
-                <MapPin className="h-4 w-4 text-[#002657]" />
-                <span>Göteborg, Sverige</span>
-              </div>
-            </div>
-            <div className="flex py-6 gap-4 ">
-              <Link href="https://www.instagram.com/crystalcleansab?igsh=bWhrZHM1aWtpZG4x" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <FaInstagram className="h-5 w-5" />
-              </Link>
-              <Link href="https://www.tiktok.com/@crystalcleansab?_t=ZN-90O1xIupbde&_r=1" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <FaTiktok className="h-5 w-5" />
-              </Link>
-              <Link href="https://www.linkedin.com/in/crystal-cleans-ab-1b6b1a367/" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <FaLinkedin className="h-5 w-5" />
-              </Link>
-            </div>
+            <button
+              onClick={() => scrollToSection('reviews')}
+              className="text-5xl font-titleFont text-darkBlue hover:text-darkBlue/80 transition-colors text-left"
+            >
+              RECENSIONER
+            </button>
           </div>
-        </div>
 
-        {/* Mobile CTA Buttons - Fixed at bottom */}
-        <div className="absolute mb-14 bottom-0 left-0 right-0 p-6 border-t rounded-2xl  bg-gray-50/20 space-y-3">
-          <Button 
-            variant="outline" 
-            className="w-full border-[#002657] text-[#002657] hover:bg-blue-50 py-4 text-base rounded-full"
-            onClick={() => {
-              window.location.href = "mailto:kontakt@crystalcleans.se?subject=Hello";
-              closeMobileMenu();
-            }}
-          >
-            Kontakta
-          </Button>
-          <Button 
-            className="w-full bg-[#002657] hover:bg-blue-700 py-4 text-base rounded-full"
-            onClick={() => {
-              window.location.hash = "#contact";
-              closeMobileMenu();
-            }}
-          >
-            Boka Nu
-          </Button>
+          {/* Bottom Section - Social Media & CTA */}
+          <div className="space-y-8">
+            {/* Social Media Links */}
+            <div className="flex gap-8">
+              <a
+                href="https://www.tiktok.com/@crystalcleansab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-darkBlue hover:text-darkBlue/80 transition-colors"
+                aria-label="TikTok"
+              >
+                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-darkBlue hover:text-darkBlue/80 transition-colors"
+                aria-label="Instagram"
+              >
+                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-darkBlue hover:text-darkBlue/80 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+            </div>
+
+            {/* Mobile CTA Button */}
+            <Button
+              onClick={() => scrollToSection('contact')}
+              className="w-full bg-darkBlue hover:bg-darkBlue/90 text-white font-titleFont font-bold py-7 rounded-full uppercase tracking-wide text-xl"
+            >
+              BOKA STÄDNING
+            </Button>
+          </div>
         </div>
       </div>
     </div>

@@ -43,7 +43,7 @@ export const TestimonialCarouselContext = createContext<{
 export const TestimonialCarousel = ({ 
   testimonials, 
   initialScroll = 0,
-  title = "Vad våra kunder säger",
+  title = "VAD VÅRA KUNDER SÄGER",
   badge = "Recensioner"
 }: TestimonialCarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
@@ -140,15 +140,7 @@ export const TestimonialCarousel = ({
       {/* Centered Header with Badge */}
       <div id="reviews" className="flex flex-col items-center justify-center text-center mb-12 md:mb-16 px-6">
         {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -10 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full  dark:bg-blue-900/20 border border-[#002657] dark:border-blue-800"
-        >
-          {/* <SparkleIcon className="w-4 h-4 text-[#0287FE]" /> */}
-          <span className=" text-[#002657]">{badge}</span>
-        </motion.div>
+     
 
         {/* Title with Sparkles */}
         <motion.div
@@ -157,7 +149,7 @@ export const TestimonialCarousel = ({
           transition={{ duration: 0.5, delay: 0.1 }}
           className="relative"
         >
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-normal text-gray-900 dark:text-neutral-200 max-w-3xl">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-titleFont text-gray-900 dark:text-neutral-200 max-w-3xl">
             {title}
           </h2>
           {/* Decorative Sparkles */}
@@ -264,7 +256,7 @@ export const TestimonialCard = ({
 
   return (
     <div 
-      className="bg-white dark:bg-gray-800 rounded-2xl px-6 py-8 md:px-8 md:py-10 relative flex-shrink-0 flex flex-col justify-between w-[350px] md:w-[500px] min-w-[250px] md:min-w-[320px] h-auto min-h-[450px] md:min-h-[420px] border border-gray-200 dark:border-gray-700  hover:shadow-xl transition-all duration-300 group"
+      className="bg-sand dark:bg-gray-800 rounded-2xl px-6 py-8 md:px-8 md:py-10 relative flex-shrink-0 flex flex-col justify-between w-[350px] md:w-[500px] min-w-[250px] md:min-w-[320px] h-auto min-h-[450px] md:min-h-[420px] border border-gray-200 dark:border-gray-700  hover:shadow-xl transition-all duration-300 group"
     >
       {/* Stars Rating */}
       {renderStars(testimonial.rating)}

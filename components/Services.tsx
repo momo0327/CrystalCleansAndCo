@@ -151,7 +151,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id='services' className="py-32 bg-white">
+    <section ref={sectionRef} id='services' className="py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className='mb-16'>
@@ -164,21 +164,18 @@ const ServicesSection = () => {
             }`}
             style={{ transitionDelay: '0ms' }}
           >
-            <Badge className="bg-white text-[#002657] gap-2 px-4 py-2 mb-6 rounded-full hover:bg-white hover:text-[#002657] dark:bg-blue-900/20 border border-[#002657] dark:border-blue-800">
-              Expertis
-            </Badge>
           </div>
 
           {/* Title - Animates second */}
           <h2 
-            className={`text-5xl md:text-7xl font-normal text-neutral-900 mb-6 transition-all duration-700 ${
+            className={`text-5xl md:text-5xl font-titleFont text-darkBlue mb-4 transition-all duration-700 ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 -translate-y-4'
             }`}
             style={{ transitionDelay: '150ms' }}
           >
-            Våra tjänster
+            VÅRA TJÄNSTER
           </h2>
         </div>
 
@@ -257,9 +254,9 @@ const ServicesSection = () => {
               <div className="pt-4">
                 <Button
                   onClick={() => window.location.hash = "#contact"}
-                  className="p-0 bg-white hover:bg-white hover:underline text-[#002657] text-lg rounded-lg font-medium inline-flex items-center gap-2 group"
+                  className="p-0 bg-bgColor hover:bg-bgColor  hover:underline text-darkBlue text-lg rounded-lg font-titleFont inline-flex items-center gap-2 group"
                 >
-                  Boka nu
+                  BOKA NU
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>

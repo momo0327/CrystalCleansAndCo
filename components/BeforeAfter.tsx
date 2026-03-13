@@ -14,7 +14,7 @@ const SECOND_IMAGE = {
 
 function BeforeAfterSection() {
   return (
-    <section className="py-16 lg:rounded-md  md:px-6 bg-gray-50">
+    <section className="py-16 lg:rounded-md  md:px-6 bg-sand">
       <div className="container max-w-full mx-auto">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           
@@ -33,7 +33,7 @@ function BeforeAfterSection() {
             </div>
             
             <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-normal text-gray-900">
+              <h2 className="text-4xl md:text-5xl font-titleFont text-gray-900">
                 Imponerad av
                 <br />
                 resultatet?
@@ -47,8 +47,8 @@ function BeforeAfterSection() {
             
             <Button 
             onClick={() => window.location.hash = "#contact"}       
-            className="inline-flex items-center rounded-lg gap-3 bg-[#002657] text-white px-5 py-3 text-sm md:px-8 md:py-4 md:text-md font-medium hover:bg-blue-800 transition-colors">
-              Få en gratis offert
+            className="inline-flex items-center rounded-lg gap-3 bg-lightBlue text-darkBlue px-5 py-3 text-sm md:px-8 md:py-4 md:text-md font-titleFont hover:bg-darker transition-colors">
+              GRATIS OFFERT
               <ArrowRight className="w-5 h-5" />
             </Button>
           </div>

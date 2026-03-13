@@ -117,7 +117,7 @@ const ModernContactSection = () => {
   return (
     <section ref={sectionRef} id="contact" className="py-20 px-4 bg-[#1a1a1a] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gray-50" />
+      <div className="absolute inset-0 bg-sand" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-start">

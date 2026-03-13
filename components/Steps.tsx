@@ -58,7 +58,7 @@ const Steps = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 px-6 bg-[#002657] rounded-3xl mx-6 my-20 md:mx-12 lg:mx-auto lg:max-w-7xl overflow-hidden"
+      className="py-20 px-6 bg-darkBlue rounded-3xl mx-6 my-20 md:mx-12 lg:mx-auto lg:max-w-7xl overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -72,9 +72,6 @@ const Steps = () => {
             }`}
             style={{ transitionDelay: '0ms' }}
           >
-            <Badge className="bg-[#002657] border border-white hover:bg-[#002657] text-white gap-2 px-4 py-2 mb-6">
-              Process
-            </Badge>
           </div>
 
           {/* Title - Animates second */}
@@ -120,7 +117,7 @@ const Steps = () => {
               <div className="flex gap-6">
                 {/* Number */}
                 <div className="flex-shrink-0">
-                  <span className="text-5xl md:text-6xl font-normal text-white/30 group-hover:text-white/50 transition-colors duration-300">
+                  <span className="text-5xl md:text-6xl font-normal text-lightBlue group-hover:text-white/50 transition-colors duration-300">
                     {step.number}
                   </span>
                 </div>

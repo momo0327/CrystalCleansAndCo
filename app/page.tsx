@@ -47,6 +47,7 @@ import CTASection from "@/components/CtaSection"
 import VideoReviews from "@/components/VideoReviews"
 import Steps from "@/components/Steps"
 import Achievements from "@/components/Achievments"
+import ClientWrapper from "@/components/ClientWrapper"
 
 const CarouselDemo = nextDynamic(
   () => import("@/components/CarouselDemo").then(mod => mod.CarouselDemo),
@@ -64,7 +65,8 @@ const CarouselDemo = nextDynamic(
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <ClientWrapper>
+      <div className="flex min-h-screen flex-col overflow-x-hidden">
 
 <Navbar/>
       <main className="flex-1">
@@ -184,5 +186,6 @@ direction="right"
 
      <Footer/>
     </div>
+    </ClientWrapper>
   )
 }

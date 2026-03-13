@@ -83,21 +83,21 @@ export function FAQSection() {
               }`}
               style={{ transitionDelay: '0ms' }}
             >
-              <Badge className="bg-white text-[#002657] gap-2 px-4 py-2 mb-6 rounded-full hover:text-[#002657] hover:bg-white dark:bg-blue-900/20 border border-[#002657] dark:border-blue-800">
+              <Badge className="bg-bgColor text-[#002657] gap-2 px-4 py-2 mb-6 rounded-full hover:text-[#002657] hover:bg-white dark:bg-blue-900/20 border border-[#002657] dark:border-blue-800">
                 FAQ
               </Badge>
             </div>
 
             {/* Title - Animates second */}
             <h2 
-              className={`text-3xl font-medium tracking-tighter text-gray-900 md:text-5xl transition-all duration-700 ${
+              className={`text-3xl font-titleFont tracking-tighter text-darkBlue md:text-5xl transition-all duration-700 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 -translate-y-4'
               }`}
               style={{ transitionDelay: '150ms' }}
             >
-              Frequently Asked Questions
+              FREQUENTLY ASKED QUESTIONS
             </h2>
 
             {/* Description - Animates third */}

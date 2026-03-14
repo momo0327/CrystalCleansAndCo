@@ -274,7 +274,7 @@ const ModernContactSection = () => {
                   type="button"
                   className={`flex-1 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                     formType === "offert"
-                      ? "bg-[#002657] text-white shadow-lg"
+                      ? "bg-lightBlue text-darkBlue shadow-lg"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                   onClick={() => setFormType("offert")}
@@ -285,7 +285,7 @@ const ModernContactSection = () => {
                   type="button"
                   className={`flex-1 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                     formType === "bokning"
-                      ? "bg-[#002657] text-white shadow-lg"
+                      ? "bg-lightBlue text-darkBlue shadow-lg"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                   onClick={() => setFormType("bokning")}
@@ -461,9 +461,9 @@ const ModernContactSection = () => {
                 <button
                   type="submit"
                   disabled={!agreeToTerms}
-                  className="w-full bg-[#002657] text-white py-4 px-6 rounded-full font-semibold text-lg hover:bg-[#2a2a2a] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-darkBlue text-lightBlue py-4 px-6 rounded-full font-titleFont text-lg hover:bg-[#2a2a2a] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Skicka förfrågan
+                  SKICKA
                 </button>
               </form>
             </div>

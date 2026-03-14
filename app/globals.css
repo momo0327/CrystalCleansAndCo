@@ -85,10 +85,16 @@
     overflow-x: hidden;
     max-width: 100vw;
     min-height: 100vh;
+    pointer-events: auto !important;
   }
 
   body {
     position: relative;
+  }
+
+  /* Ensure main content area is always interactive */
+  main {
+    pointer-events: auto !important;
   }
 
   /* Ensure content is always visible during load */
@@ -96,10 +102,26 @@
     animation-fill-mode: both !important;
   }
 
-  /* Ensure mounting content is visible */
+  /* Prevent framer-motion from blocking interactions */
+  [data-framer-component-type] {
+    pointer-events: auto !important;
+  }
+
+  /* Ensure mounting content is visible and interactive */
   .mounting * {
     opacity: 1 !important;
     transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  /* Ensure all content is interactive after mount */
+  .mounted * {
+    pointer-events: auto !important;
+  }
+
+  /* Force interactivity on all interactive elements */
+  button, a, input, textarea, select, [role="button"], [tabindex] {
+    pointer-events: auto !important;
   }
 
   /* Fallback for failed animations */

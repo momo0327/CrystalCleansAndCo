@@ -136,7 +136,7 @@ function Navbar() {
               onClick={() => scrollToSection('reviews')}
               className="text-5xl font-titleFont text-darkBlue hover:text-darkBlue/80 transition-colors text-left"
             >
-              RECENSIONER
+              RECENSIONER¨
             </button>
           </div>
 
